@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rota das Lupas · Óculos com presença</title>
+  <meta name="description" content="Óculos de sol premium com lentes espelhadas. De R$189,90 por R$129,90 na oferta de estreia. Entre para a Rota." />
+  <link rel="icon" type="image/png" href="../_marca/logo/icone-transparente.png" />
+
+  <!-- Fontes: Fraunces (display serifada) + Manrope (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+</head>
+<body>
+
+  <!-- ① Top bar -->
+  <div class="topbar">
+    <div class="topbar__track">
+      <span class="topbar__item"><span class="dot">◆</span> Frete para todo o Brasil</span>
+      <span class="topbar__item"><span class="dot">◆</span> Troca fácil em 7 dias</span>
+      <span class="topbar__item"><span class="dot">◆</span> Oferta de estreia no ar</span>
+    </div>
+  </div>
+
+  <!-- ② Header -->
+  <header class="header" data-header>
+    <div class="container header__inner">
+      <a class="brand" href="#" data-logo aria-label="Rota das Lupas — início">
+        <img class="brand__img" src="../_marca/logo/logo-transparente.png" alt="Rota das Lupas" />
+        <span class="brand__text">Rota das Lupas<small>Óculos Premium</small></span>
+      </a>
+
+      <nav class="nav" aria-label="Menu principal">
+        <a class="nav__link" href="#colecao">Coleção</a>
+        <a class="nav__link" href="#lancamento">Lançamento 24K</a>
+        <a class="nav__link" href="#categorias">Categorias</a>
+        <a class="nav__link" href="quem-somos.html">A Rota</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" type="button" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" type="button" aria-label="Carrinho">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-btn__count">0</span>
+        </button>
+        <button class="icon-btn nav-toggle" type="button" aria-label="Abrir menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ③ Hero -->
+    <section class="hero">
+      <!-- Sol nascente (inline SVG, inspirado no logo) -->
+      <svg class="hero__sun" viewBox="0 0 560 300" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#d9b76a"/><stop offset="1" stop-color="#b6893c"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#sun)" stroke-width="10" stroke-linecap="round">
+          <line x1="130" y1="70"  x2="430" y2="70"/>
+          <line x1="105" y1="110" x2="455" y2="110"/>
+          <line x1="90"  y1="150" x2="470" y2="150"/>
+          <line x1="80"  y1="190" x2="480" y2="190"/>
+          <line x1="78"  y1="230" x2="482" y2="230"/>
+        </g>
+      </svg>
+
+      <div class="container hero__grid">
+        <div class="hero__copy reveal">
+          <span class="eyebrow">Rota das Lupas · Oferta de estreia</span>
+          <h1 class="hero__title">Óculos com <em>presença.</em></h1>
+          <p class="hero__sub">Lente espelhada, dourado 24K. Você não veio até aqui pra passar despercebido.</p>
+
+          <div class="price">
+            <span class="price__old">R$189,90</span>
+            <span class="price__now">R$129,90</span>
+            <span class="price__tag">Preço de lançamento</span>
+          </div>
+
+          <div class="hero__cta">
+            <a class="btn btn--gold" href="#lancamento">Comprar agora</a>
+            <a class="btn btn--ghost" href="#colecao">Ver coleção</a>
+          </div>
+        </div>
+
+        <!-- Palco do produto: vídeo 360 girando automático em loop -->
+        <div class="hero__stage reveal">
+          <div class="hero__stage-inner">
+            <video class="hero__video" src="assets/video/rota-24k-360.mp4"
+                   autoplay loop muted playsinline preload="auto"
+                   aria-label="Óculos Rota 24K girando em 360 graus"></video>
+          </div>
+          <span class="stage-badge">Primeira parada: 24K</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faixa "rota" em movimento -->
+    <div class="strip" aria-hidden="true">
+      <div class="strip__track">
+        <span class="strip__item">Óculos com presença <span class="sep">◆</span> Ninguém escolhe a rota por você <span class="sep">◆</span> Primeira parada: 24K <span class="sep">◆</span></span>
+        <span class="strip__item">Óculos com presença <span class="sep">◆</span> Ninguém escolhe a rota por você <span class="sep">◆</span> Primeira parada: 24K <span class="sep">◆</span></span>
+      </div>
+    </div>
+
+    <!-- ④ Categorias -->
+    <section class="section categories" id="categorias">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Escolha seu caminho</span>
+          <h2>Categorias</h2>
+          <p>Cada rota pede uma lupa. Escolha a sua.</p>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-card reveal" href="#colecao"><div><h3>Espelhados</h3><span>Lentes que chamam atenção</span></div></a>
+          <a class="cat-card reveal" href="#colecao"><div><h3>Esportivos</h3><span>Performance e presença</span></div></a>
+          <a class="cat-card reveal" href="#colecao"><div><h3>Dourados 24K</h3><span>O premium da casa</span></div></a>
+          <a class="cat-card reveal" href="#colecao"><div><h3>Total Black</h3><span>Discreto e forte</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ Produtos em destaque -->
+    <section class="section" id="colecao">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Coleção</span>
+          <h2>Em destaque</h2>
+          <p>As primeiras lupas da Rota, todas em condição de estreia.</p>
+        </div>
+        <div class="product-grid" data-products><!-- preenchido via JS a partir de products.js --></div>
+      </div>
+    </section>
+
+    <!-- ⑥ Lançamento 24K -->
+    <section class="section launch" id="lancamento">
+      <div class="container launch__grid">
+        <div class="reveal">
+          <span class="eyebrow">Lançamento</span>
+          <h2>Rota 24K</h2>
+          <p>A lupa que abre a Rota: dourada, espelhada, feita pra encarar o sol de frente.</p>
+          <ul class="launch__list">
+            <li><span class="tick">◆</span> Lente espelhada com proteção UV400</li>
+            <li><span class="tick">◆</span> Estrutura leve e resistente</li>
+            <li><span class="tick">◆</span> Acabamento dourado premium</li>
+            <li><span class="tick">◆</span> Estojo Rota das Lupas incluso</li>
+          </ul>
+          <div class="launch__cta">
+            <a class="btn btn--gold" href="#">Comprar por R$129,90</a>
+            <span class="price__old" style="align-self:center">De R$189,90</span>
+          </div>
+        </div>
+        <div class="launch__stage reveal" data-empty="true">
+          <img src="../_marca/produtos/24k.png" alt="Óculos Rota 24K"
+               onerror="this.closest('.launch__stage').setAttribute('data-empty','true')"
+               onload="this.closest('.launch__stage').setAttribute('data-empty','false')" />
+          <div class="stage-placeholder">
+            <strong>Rota 24K</strong>
+            <span>Foto / vídeo do produto</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑦ Lifestyle / deserto -->
+    <section class="section lifestyle" id="marca">
+      <div class="container">
+        <p class="eyebrow reveal">A Rota</p>
+        <blockquote class="lifestyle__quote reveal">Toda caravana segue o mesmo caminho. <span>Um camelo não seguiu.</span></blockquote>
+        <p class="reveal">Foi assim que a Rota começou. E ninguém escolhe a rota por você.</p>
+        <a class="btn btn--ghost reveal" href="quem-somos.html" style="margin-top:var(--space-5)">Conheça a Rota</a>
+      </div>
+    </section>
+
+    <!-- ⑧ Confiança -->
+    <section class="section trust">
+      <div class="container trust__grid">
+        <div class="trust__item reveal">
+          <span class="trust__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+          <h3>Frete Brasil</h3><p>Enviamos para todo o país</p>
+        </div>
+        <div class="trust__item reveal">
+          <span class="trust__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-9 9"/><path d="M3 3v6h6"/></svg></span>
+          <h3>Troca fácil</h3><p>7 dias para trocar</p>
+        </div>
+        <div class="trust__item reveal">
+          <span class="trust__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></span>
+          <h3>Compra segura</h3><p>Pagamento protegido</p>
+        </div>
+        <div class="trust__item reveal">
+          <span class="trust__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <h3>UV400</h3><p>Proteção real dos olhos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑨ Comunidade / Newsletter -->
+    <section class="section community">
+      <div class="container">
+        <span class="eyebrow reveal">Entre para a Rota</span>
+        <h2 class="reveal">Faça parte do caminho</h2>
+        <p class="reveal">Novidades, lançamentos e ofertas de estreia direto no seu e-mail.</p>
+        <form class="newsletter reveal" onsubmit="return false">
+          <input type="email" placeholder="Seu melhor e-mail" aria-label="Seu e-mail" required />
+          <button class="btn btn--gold" type="submit">Quero entrar</button>
+        </form>
+        <div class="socials reveal">
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.3 1.9 4 4 4.2v3c-1.5 0-2.9-.5-4-1.3v6.6a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.1a3 3 0 1 0 2 2.8V3h3Z"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ⑩ Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand" data-logo>
+          <img src="../_marca/logo/logo-claro.png" alt="Rota das Lupas" />
+          <span class="brand__text" style="color:var(--sand-100)">Rota das Lupas<small>Óculos Premium</small></span>
+          <p>Começou com um camelo que largou a caravana. O resto a gente conta pelo caminho.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Loja</h4>
+          <a href="#colecao">Coleção</a>
+          <a href="#lancamento">Lançamento 24K</a>
+          <a href="#categorias">Categorias</a>
+        </div>
+        <div class="footer__col">
+          <h4>Atendimento</h4>
+          <a href="mailto:rotadaslupas@gmail.com">rotadaslupas@gmail.com</a>
+          <a href="#">Trocas e devoluções</a>
+          <a href="#">Política de privacidade</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Rota das Lupas. Todos os direitos reservados.</span>
+        <span>Óculos com presença.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/data/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
