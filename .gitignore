@@ -1,0 +1,23 @@
+# === Segredos / credenciais (NUNCA commitar) ===
+.env
+.env.*
+!.env.example
+*.token
+*.secret
+
+# === Config local (pessoal, não versionar) ===
+.claude/settings.local.json
+
+# === Shopify CLI ===
+.shopify/
+*.log
+
+# === Node ===
+node_modules/
+dist/
+.cache/
+
+# === Sistema ===
+.DS_Store
+Thumbs.db
+desktop.ini
