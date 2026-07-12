@@ -644,6 +644,72 @@
         "padding-block-end": 48
       }
     },
+    "rota_narrativa": {
+      "type": "rota-narrativa",
+      "blocks": {
+        "eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A Rota</p>",
+            "type_preset": "paragraph",
+            "case": "uppercase",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left"
+          },
+          "blocks": {}
+        },
+        "frase_1": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Toda caravana segue o mesmo caminho. Um camelo não seguiu.</h2>",
+            "type_preset": "h2",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left"
+          },
+          "blocks": {}
+        },
+        "frase_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Foi assim que a Rota começou. E ninguém escolhe a rota por você.</p>",
+            "type_preset": "paragraph",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "left"
+          },
+          "blocks": {}
+        },
+        "cta_rota": {
+          "type": "button",
+          "settings": {
+            "label": "Conheça a Rota",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "frase_1",
+        "frase_2",
+        "cta_rota"
+      ],
+      "settings": {
+        "image_position": "left",
+        "section_width": "page-width",
+        "background_color": "{{ settings.color_palette.color1 }}",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
     "newsletter": {
       "type": "section",
       "blocks": {
@@ -721,6 +787,7 @@
     "hero_rota",
     "beneficios",
     "destaques",
+    "rota_narrativa",
     "newsletter"
   ]
 }
