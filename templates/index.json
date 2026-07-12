@@ -147,7 +147,7 @@
                   "type": "button",
                   "settings": {
                     "label": "Conheça a Rota",
-                    "link": "shopify://pages/a-rota",
+                    "link": "shopify://collections/all",
                     "open_in_new_tab": false,
                     "style_class": "button-unstyled",
                     "link_text_color": "{{ settings.color_palette.background }}",
@@ -176,7 +176,7 @@
         "group_hero_content"
       ],
       "settings": {
-        "media_type_1": "video",
+        "media_type_1": "image",
         "media_type_2": "image",
         "open_in_new_tab": false,
         "content_direction": "column",
@@ -644,174 +644,6 @@
         "padding-block-end": 48
       }
     },
-    "rota_narrativa": {
-      "type": "rota-narrativa",
-      "blocks": {
-        "eyebrow": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A Rota</p>",
-            "type_preset": "paragraph",
-            "case": "uppercase",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left"
-          },
-          "blocks": {}
-        },
-        "frase_1": {
-          "type": "text",
-          "settings": {
-            "text": "<h2>Toda caravana segue o mesmo caminho. Um camelo não seguiu.</h2>",
-            "type_preset": "h2",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left"
-          },
-          "blocks": {}
-        },
-        "frase_2": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Foi assim que a Rota começou. E ninguém escolhe a rota por você.</p>",
-            "type_preset": "paragraph",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "left"
-          },
-          "blocks": {}
-        },
-        "cta_rota": {
-          "type": "button",
-          "settings": {
-            "label": "Conheça a Rota",
-            "link": "shopify://pages/a-rota",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "eyebrow",
-        "frase_1",
-        "frase_2",
-        "cta_rota"
-      ],
-      "settings": {
-        "image_position": "left",
-        "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.color1 }}",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "categorias": {
-      "type": "collection-links",
-      "blocks": {
-        "link": {
-          "type": "_collection-link",
-          "static": true,
-          "settings": {},
-          "blocks": {
-            "title": {
-              "type": "_inline-collection-title",
-              "name": "t:names.title",
-              "static": true,
-              "settings": {
-                "font": "var(--font-primary--family)"
-              },
-              "blocks": {}
-            },
-            "image": {
-              "type": "_image",
-              "static": true,
-              "settings": {
-                "height": "large",
-                "ratio": "square"
-              },
-              "blocks": {}
-            }
-          }
-        }
-      },
-      "name": "Categorias",
-      "settings": {
-        "collection_list": [],
-        "layout": "spotlight",
-        "section_width": "page-width",
-        "alignment": "left",
-        "image_position": "right",
-        "background_color": "",
-        "padding-block-start": 64,
-        "padding-block-end": 64
-      }
-    },
-    "destaque_editorial": {
-      "type": "featured-product",
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true,
-          "name": "t:names.product_media",
-          "settings": {},
-          "blocks": {}
-        },
-        "featured-product": {
-          "type": "_featured-product",
-          "static": true,
-          "name": "t:names.product",
-          "settings": {},
-          "blocks": {
-            "featured-product-title": {
-              "type": "product-title",
-              "name": "t:names.title",
-              "static": true,
-              "settings": {
-                "type_preset": "h3",
-                "width": "100%"
-              },
-              "blocks": {}
-            },
-            "featured-product-price": {
-              "type": "_featured-product-price",
-              "name": "t:names.price",
-              "static": true,
-              "settings": {},
-              "blocks": {}
-            },
-            "featured-product-gallery": {
-              "type": "_featured-product-gallery",
-              "name": "t:names.image",
-              "static": true,
-              "settings": {},
-              "blocks": {}
-            },
-            "featured-product-swatches": {
-              "type": "swatches",
-              "name": "t:names.swatches",
-              "static": true,
-              "settings": {
-                "hide_padding": true
-              },
-              "blocks": {}
-            }
-          }
-        }
-      },
-      "name": "Destaque da vez",
-      "settings": {
-        "product": "",
-        "layout": "media-left",
-        "background_color": "",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
     "newsletter": {
       "type": "section",
       "blocks": {
@@ -889,9 +721,6 @@
     "hero_rota",
     "beneficios",
     "destaques",
-    "rota_narrativa",
-    "categorias",
-    "destaque_editorial",
     "newsletter"
   ]
 }
