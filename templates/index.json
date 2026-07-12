@@ -8,24 +8,24 @@
  * ------------------------------------------------------------
  */{
   "sections": {
-    "hero_RkimKJ": {
+    "hero_rota": {
       "type": "hero",
       "blocks": {
-        "group_3cB4GW": {
+        "group_hero_content": {
           "type": "group",
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
+            "vertical_alignment": "flex-end",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 16,
             "width": "custom",
-            "custom_width": 34,
+            "custom_width": 46,
             "width_mobile": "custom",
-            "custom_width_mobile": 53,
+            "custom_width_mobile": 90,
             "height": "fit",
             "custom_height": 100,
             "background_media": "none",
@@ -41,19 +41,19 @@
             "gradient_direction": "to top",
             "open_in_new_tab": false,
             "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
+            "padding-block-end": 48,
+            "padding-inline-start": 24,
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_KxeJ6r": {
+            "text_headline": {
               "type": "text",
               "settings": {
-                "text": "<p>Savor every. last. bite. </p>",
+                "text": "<h1>Óculos com presença.</h1>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h2",
+                "type_preset": "h1",
                 "font": "var(--font-primary--family)",
                 "line_height": "normal",
                 "letter_spacing": "normal",
@@ -70,50 +70,130 @@
               },
               "blocks": {}
             },
-            "button_nazDaa": {
-              "type": "button",
+            "text_apoio": {
+              "type": "text",
               "settings": {
-                "label": "Shop all →",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button-unstyled",
-                "link_text_color": "{{ settings.color_palette.background }}",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "text": "<p>Lente espelhada, dourado 24K. Você não veio até aqui pra passar despercebido.</p>",
+                "width": "100%",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "group_hero_ctas": {
+              "type": "group",
+              "settings": {
+                "content_direction": "row",
+                "vertical_on_mobile": false,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 16,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "open_in_new_tab": false,
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "button_ver_colecao": {
+                  "type": "button",
+                  "settings": {
+                    "label": "Ver coleção",
+                    "link": "shopify://collections/all",
+                    "open_in_new_tab": false,
+                    "style_class": "button",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                },
+                "button_conheca": {
+                  "type": "button",
+                  "settings": {
+                    "label": "Conheça a Rota",
+                    "link": "shopify://pages/a-rota",
+                    "open_in_new_tab": false,
+                    "style_class": "button-unstyled",
+                    "link_text_color": "{{ settings.color_palette.background }}",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "button_ver_colecao",
+                "button_conheca"
+              ]
             }
           },
           "block_order": [
-            "text_KxeJ6r",
-            "button_nazDaa"
+            "text_headline",
+            "text_apoio",
+            "group_hero_ctas"
           ]
         }
       },
       "block_order": [
-        "group_3cB4GW"
+        "group_hero_content"
       ],
       "settings": {
-        "media_type_1": "image",
+        "media_type_1": "video",
         "media_type_2": "image",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
+        "vertical_alignment": "flex-end",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 16,
-        "section_width": "page-width",
-        "section_height": "large",
-        "section_height_custom": 50,
+        "section_width": "full-width",
+        "section_height": "full-screen",
+        "section_height_custom": 90,
         "background_color": "{{ settings.color_palette.color1 }}",
-        "toggle_overlay": false,
-        "overlay_color": "#000000",
-        "overlay_style": "solid",
+        "toggle_overlay": true,
+        "overlay_color": "#00000040",
+        "overlay_style": "gradient",
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
@@ -121,7 +201,197 @@
         "padding-block-end": 0
       }
     },
-    "product_list_X8Q7bi": {
+    "beneficios": {
+      "type": "section",
+      "blocks": {
+        "beneficio_frete": {
+          "type": "group",
+          "name": "Frete",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "height": "fit"
+          },
+          "blocks": {
+            "icon_frete": {
+              "type": "icon",
+              "settings": {
+                "icon": "truck",
+                "width": 28,
+                "link": ""
+              },
+              "blocks": {}
+            },
+            "text_frete": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Frete para todo o Brasil</h3><p>Envio rastreado, do nosso caminho pro seu.</p>",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["icon_frete", "text_frete"]
+        },
+        "beneficio_pagamento": {
+          "type": "group",
+          "name": "Pagamento",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "height": "fit"
+          },
+          "blocks": {
+            "icon_pagamento": {
+              "type": "icon",
+              "settings": {
+                "icon": "lock",
+                "width": 28,
+                "link": ""
+              },
+              "blocks": {}
+            },
+            "text_pagamento": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Pagamento seguro</h3><p>Pix, cartão e parcelamento. Sem surpresa.</p>",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["icon_pagamento", "text_pagamento"]
+        },
+        "beneficio_troca": {
+          "type": "group",
+          "name": "Troca",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "height": "fit"
+          },
+          "blocks": {
+            "icon_troca": {
+              "type": "icon",
+              "settings": {
+                "icon": "return",
+                "width": 28,
+                "link": ""
+              },
+              "blocks": {}
+            },
+            "text_troca": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Troca fácil</h3><p>Se não for a sua rota, a gente resolve.</p>",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["icon_troca", "text_troca"]
+        },
+        "beneficio_suporte": {
+          "type": "group",
+          "name": "Suporte",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "height": "fit"
+          },
+          "blocks": {
+            "icon_suporte": {
+              "type": "icon",
+              "settings": {
+                "icon": "chat_bubble",
+                "width": 28,
+                "link": ""
+              },
+              "blocks": {}
+            },
+            "text_suporte": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Suporte de gente</h3><p>Fale com a gente. Resposta rápida, sem robô.</p>",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["icon_suporte", "text_suporte"]
+        }
+      },
+      "block_order": [
+        "beneficio_frete",
+        "beneficio_pagamento",
+        "beneficio_troca",
+        "beneficio_suporte"
+      ],
+      "name": "Benefícios",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "destaques": {
       "type": "product-list",
       "blocks": {
         "static-header": {
@@ -150,11 +420,39 @@
             "border_opacity": 100,
             "border_radius": 0,
             "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-block-end": 16,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
-          "blocks": {}
+          "blocks": {
+            "text_destaques_eyebrow": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Primeira parada</p>",
+                "type_preset": "paragraph",
+                "case": "uppercase",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left"
+              },
+              "blocks": {}
+            },
+            "text_destaques_titulo": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>As lupas da vez</h2>",
+                "type_preset": "h3",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_destaques_eyebrow",
+            "text_destaques_titulo"
+          ]
         },
         "static-product-card": {
           "type": "_product-card",
@@ -166,22 +464,22 @@
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 0,
+            "border_radius": 12,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_card_gallery_Gn6P7T": {
+            "product_card_gallery": {
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "square",
+                "image_ratio": "portrait",
                 "border": "solid",
                 "border_width": 0,
                 "border_opacity": 0,
-                "border_radius": 0,
+                "border_radius": 12,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -189,7 +487,7 @@
               },
               "blocks": {}
             },
-            "group_AUJmQt": {
+            "group_card_info": {
               "type": "_product-card-group",
               "name": "t:names.group",
               "settings": {
@@ -225,7 +523,7 @@
                 "padding-inline-end": 12
               },
               "blocks": {
-                "group_pLH7Cd": {
+                "group_title_price": {
                   "type": "_product-card-group",
                   "name": "t:names.group",
                   "settings": {
@@ -261,7 +559,7 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "product_title_gtg38q": {
+                    "product_title": {
                       "type": "product-title",
                       "name": "t:names.product_title",
                       "settings": {
@@ -285,7 +583,7 @@
                       },
                       "blocks": {}
                     },
-                    "price_Vz3EzL": {
+                    "product_price": {
                       "type": "price",
                       "name": "t:names.product_price",
                       "settings": {
@@ -309,243 +607,269 @@
                     }
                   },
                   "block_order": [
-                    "product_title_gtg38q",
-                    "price_Vz3EzL"
-                  ]
-                },
-                "group_3Fwdtp": {
-                  "type": "_product-card-group",
-                  "name": "t:names.group",
-                  "settings": {
-                    "content_direction": "column",
-                    "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "center",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "flex-start",
-                    "gap": 12,
-                    "width": "fit-content",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 25,
-                    "height": "fit",
-                    "custom_height": 100,
-                    "background_media": "none",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "open_in_new_tab": false,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {
-                    "text_JHMjjF": {
-                      "type": "text",
-                      "name": "t:names.text",
-                      "settings": {
-                        "text": "<p>{{ closest.product.metafields.descriptors.subtitle.value }}</p>",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "paragraph",
-                        "font": "var(--font-primary--family)",
-                        "font_size": "var(--font-size--body-md)",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_JHMjjF"
+                    "product_title",
+                    "product_price"
                   ]
                 }
               },
               "block_order": [
-                "group_pLH7Cd",
-                "group_3Fwdtp"
+                "group_title_price"
               ]
             }
           },
           "block_order": [
-            "product_card_gallery_Gn6P7T",
-            "group_AUJmQt"
+            "product_card_gallery",
+            "group_card_info"
           ]
         }
       },
-      "name": "Featured collection",
+      "name": "Primeira parada",
       "settings": {
         "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
+        "layout_type": "carousel",
+        "carousel_on_mobile": true,
         "max_products": 6,
         "columns": 3,
         "mobile_columns": "1",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 1,
-        "rows_gap": 1,
+        "mobile_card_size": "75cqw",
+        "columns_gap": 8,
+        "rows_gap": 8,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "full-width",
         "horizontal_alignment": "flex-start",
         "gap": 0,
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 24,
+        "padding-block-end": 48
       }
     },
-    "section_RhpYRt": {
-      "type": "section",
+    "rota_narrativa": {
+      "type": "rota-narrativa",
       "blocks": {
-        "video_NqWNaD": {
-          "type": "video",
-          "name": "t:names.video",
+        "eyebrow": {
+          "type": "text",
           "settings": {
-            "source": "url",
-            "video_autoplay": false,
-            "video_loop": true,
-            "custom_width": 67,
-            "custom_width_mobile": 100,
-            "aspect_ratio": "16/9",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "text": "<p>A Rota</p>",
+            "type_preset": "paragraph",
+            "case": "uppercase",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left"
           },
           "blocks": {}
         },
-        "group_TEanyT": {
-          "type": "group",
-          "name": "Caption",
+        "frase_1": {
+          "type": "text",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "custom",
-            "custom_width": 33,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
+            "text": "<h2>Toda caravana segue o mesmo caminho. Um camelo não seguiu.</h2>",
+            "type_preset": "h2",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left"
+          },
+          "blocks": {}
+        },
+        "frase_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Foi assim que a Rota começou. E ninguém escolhe a rota por você.</p>",
+            "type_preset": "paragraph",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "left"
+          },
+          "blocks": {}
+        },
+        "cta_rota": {
+          "type": "button",
+          "settings": {
+            "label": "Conheça a Rota",
+            "link": "shopify://pages/a-rota",
             "open_in_new_tab": false,
-            "padding-block-start": 40,
-            "padding-block-end": 40,
-            "padding-inline-start": 40,
-            "padding-inline-end": 40
+            "style_class": "button-secondary",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
           },
-          "blocks": {
-            "text_BRFzjN": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h3>A Family Tradition of Bold, Fresh Flavor</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-primary--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_tKxhbY": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p>Food has the power to connect generations. Whether it’s learning family recipes or the intense memories triggered by the flavors and aromas of our childhood.</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_BRFzjN",
-            "text_tKxhbY"
-          ]
+          "blocks": {}
         }
       },
       "block_order": [
-        "video_NqWNaD",
-        "group_TEanyT"
+        "eyebrow",
+        "frase_1",
+        "frase_2",
+        "cta_rota"
       ],
-      "name": "t:names.video_section",
       "settings": {
-        "content_direction": "row",
+        "image_position": "left",
+        "section_width": "page-width",
+        "background_color": "{{ settings.color_palette.color1 }}",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "categorias": {
+      "type": "collection-links",
+      "blocks": {
+        "link": {
+          "type": "_collection-link",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "title": {
+              "type": "_inline-collection-title",
+              "name": "t:names.title",
+              "static": true,
+              "settings": {
+                "font": "var(--font-primary--family)"
+              },
+              "blocks": {}
+            },
+            "image": {
+              "type": "_image",
+              "static": true,
+              "settings": {
+                "height": "large",
+                "ratio": "square"
+              },
+              "blocks": {}
+            }
+          }
+        }
+      },
+      "name": "Categorias",
+      "settings": {
+        "collection_list": [],
+        "layout": "spotlight",
+        "section_width": "page-width",
+        "alignment": "left",
+        "image_position": "right",
+        "background_color": "",
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "destaque_editorial": {
+      "type": "featured-product",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "name": "t:names.product_media",
+          "settings": {},
+          "blocks": {}
+        },
+        "featured-product": {
+          "type": "_featured-product",
+          "static": true,
+          "name": "t:names.product",
+          "settings": {},
+          "blocks": {
+            "featured-product-title": {
+              "type": "product-title",
+              "name": "t:names.title",
+              "static": true,
+              "settings": {
+                "type_preset": "h3",
+                "width": "100%"
+              },
+              "blocks": {}
+            },
+            "featured-product-price": {
+              "type": "_featured-product-price",
+              "name": "t:names.price",
+              "static": true,
+              "settings": {},
+              "blocks": {}
+            },
+            "featured-product-gallery": {
+              "type": "_featured-product-gallery",
+              "name": "t:names.image",
+              "static": true,
+              "settings": {},
+              "blocks": {}
+            },
+            "featured-product-swatches": {
+              "type": "swatches",
+              "name": "t:names.swatches",
+              "static": true,
+              "settings": {
+                "hide_padding": true
+              },
+              "blocks": {}
+            }
+          }
+        }
+      },
+      "name": "Destaque da vez",
+      "settings": {
+        "product": "",
+        "layout": "media-left",
+        "background_color": "",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "newsletter": {
+      "type": "section",
+      "blocks": {
+        "news_titulo": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>Entre para a Rota</h2>",
+            "type_preset": "h3",
+            "width": "100%",
+            "alignment": "center"
+          },
+          "blocks": {}
+        },
+        "news_texto": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Novidades, lançamentos e ofertas de estreia direto no seu e-mail.</p>",
+            "type_preset": "paragraph",
+            "width": "100%",
+            "alignment": "center"
+          },
+          "blocks": {}
+        },
+        "news_form": {
+          "type": "email-signup",
+          "settings": {
+            "width": "custom",
+            "custom_width": 50,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100,
+            "style_class": "button-unstyled",
+            "display_type": "arrow",
+            "label": "Quero entrar",
+            "integrated_button": true
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "news_titulo",
+        "news_texto",
+        "news_form"
+      ],
+      "name": "Newsletter",
+      "settings": {
+        "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
+        "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 6,
+        "gap": 16,
         "section_width": "full-width",
         "section_height_custom": 50,
         "background_media": "none",
-        "background_color": "{{ settings.color_palette.color2 }}",
+        "background_color": "{{ settings.color_palette.color1 }}",
         "video_position": "cover",
         "background_image_position": "cover",
         "border": "none",
@@ -556,14 +880,18 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 72,
+        "padding-block-end": 72
       }
     }
   },
   "order": [
-    "hero_RkimKJ",
-    "product_list_X8Q7bi",
-    "section_RhpYRt"
+    "hero_rota",
+    "beneficios",
+    "destaques",
+    "rota_narrativa",
+    "categorias",
+    "destaque_editorial",
+    "newsletter"
   ]
 }

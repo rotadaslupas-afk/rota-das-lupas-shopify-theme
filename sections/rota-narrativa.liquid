@@ -1,0 +1,277 @@
+<script
+  src="{{ 'rota-reveal.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+
+  assign image_desktop = section.settings.image
+  assign image_mobile = section.settings.image_mobile | default: section.settings.image
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<rota-reveal
+  class="
+    rota-narrativa
+    section
+    spacing-style
+    section--{{ section.settings.section_width }}
+    rota-narrativa--image-{{ section.settings.image_position }}
+    {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
+  "
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  {% if image_desktop %}
+    <div class="rota-narrativa__media" data-reveal>
+      {{
+        image_desktop
+        | image_url: width: 1500
+        | image_tag:
+          widths: '400, 600, 800, 1200, 1500',
+          sizes: '(min-width: 750px) 50vw, 100vw',
+          class: 'rota-narrativa__image rota-narrativa__image--desktop',
+          loading: 'lazy'
+      }}
+      {{
+        image_mobile
+        | image_url: width: 900
+        | image_tag:
+          widths: '400, 600, 900',
+          sizes: '100vw',
+          class: 'rota-narrativa__image rota-narrativa__image--mobile',
+          loading: 'lazy'
+      }}
+    </div>
+  {% endif %}
+
+  <div class="rota-narrativa__content" data-reveal>
+    {% content_for 'blocks' %}
+  </div>
+</rota-reveal>
+
+{% stylesheet %}
+  rota-reveal.rota-narrativa {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-lg);
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .rota-narrativa__media {
+    width: 100%;
+  }
+
+  .rota-narrativa__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--style-border-radius-popover, 8px);
+  }
+
+  .rota-narrativa__image--mobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .rota-narrativa__image--desktop {
+      display: none;
+    }
+
+    .rota-narrativa__image--mobile {
+      display: block;
+    }
+  }
+
+  .rota-narrativa__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+    width: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    rota-reveal.rota-narrativa {
+      flex-direction: row;
+      gap: var(--gap-2xl);
+    }
+
+    .rota-narrativa--image-right .rota-narrativa__media {
+      order: 2;
+    }
+
+    .rota-narrativa__media,
+    .rota-narrativa__content {
+      flex: 1 1 50%;
+      min-width: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .rota-reveal--ready [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .rota-reveal--ready [data-reveal]:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+
+    .rota-reveal--ready [data-reveal].is-revealed {
+      opacity: 1;
+      transform: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "A Rota — narrativa",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "@theme"
+    }
+  ],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagem"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Imagem (mobile)"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Posição da imagem",
+      "options": [
+        {
+          "value": "left",
+          "label": "Esquerda"
+        },
+        {
+          "value": "right",
+          "label": "Direita"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Largura",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Página"
+        },
+        {
+          "value": "full-width",
+          "label": "Cheia"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Cor de fundo",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "A Rota — narrativa",
+      "category": "t:categories.storytelling",
+      "settings": {
+        "image_position": "left",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      },
+      "blocks": {
+        "eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A Rota</p>",
+            "type_preset": "paragraph",
+            "case": "uppercase",
+            "letter_spacing": "loose",
+            "width": "100%",
+            "alignment": "left"
+          }
+        },
+        "frase_1": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Toda caravana segue o mesmo caminho. Um camelo não seguiu.</h2>",
+            "type_preset": "h2",
+            "width": "100%",
+            "alignment": "left"
+          }
+        },
+        "frase_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Foi assim que a Rota começou. E ninguém escolhe a rota por você.</p>",
+            "type_preset": "paragraph",
+            "width": "100%",
+            "alignment": "left"
+          }
+        },
+        "cta": {
+          "type": "button",
+          "settings": {
+            "label": "Conheça a Rota",
+            "link": "shopify://pages/a-rota",
+            "style_class": "button-secondary",
+            "width": "fit-content"
+          }
+        }
+      },
+      "block_order": ["eyebrow", "frase_1", "frase_2", "cta"]
+    }
+  ]
+}
+{% endschema %}

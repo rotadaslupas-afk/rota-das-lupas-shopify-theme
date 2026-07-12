@@ -14,6 +14,18 @@
     "footer_WnX4aJ": {
       "type": "footer",
       "blocks": {
+        "text_lenda": {
+          "type": "text",
+          "name": "Lenda",
+          "settings": {
+            "text": "<p>Começou com um camelo que largou a caravana. O resto a gente conta pelo caminho.</p>",
+            "width": "custom",
+            "custom_width": 60,
+            "padding-block-start": 0,
+            "padding-block-end": 8
+          },
+          "blocks": {}
+        },
         "group_EJMKU9": {
           "type": "group",
           "name": "Menu links",
@@ -55,7 +67,7 @@
               "name": "t:names.menu",
               "settings": {
                 "menu": "footer",
-                "heading": "Shop",
+                "heading": "Lupas",
                 "menu_spacing": 4,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
@@ -74,7 +86,7 @@
               "name": "t:names.menu",
               "settings": {
                 "menu": "",
-                "heading": "Ask",
+                "heading": "Ajuda",
                 "menu_spacing": 4,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
@@ -93,7 +105,7 @@
               "name": "t:names.menu",
               "settings": {
                 "menu": "",
-                "heading": "Connect",
+                "heading": "A Rota",
                 "menu_spacing": 4,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
@@ -120,19 +132,19 @@
           "settings": {
             "width": "fill",
             "custom_width": 70,
-            "heading": "We send tasty emails",
+            "heading": "Faça parte do caminho",
             "heading_preset": "h4",
             "border_style": "underline",
             "input_style": "custom",
             "border_width": 1,
             "border_radius": 100,
-            "input_background_color": "{{ settings.color_palette.background }}",
-            "input_text_color": "{{ settings.color_palette.foreground }}",
-            "input_border_color": "{{ settings.color_palette.foreground }}",
+            "input_background_color": "transparent",
+            "input_text_color": "{{ settings.color_palette.background }}",
+            "input_border_color": "{{ settings.color_palette.background }}",
             "input_type_preset": "paragraph",
             "style_class": "button-unstyled",
             "display_type": "arrow",
-            "label": "Sign Up",
+            "label": "Quero entrar",
             "integrated_button": false,
             "button_type_preset": "paragraph",
             "padding-block-start": 0,
@@ -144,6 +156,7 @@
         }
       },
       "block_order": [
+        "text_lenda",
         "group_EJMKU9",
         "email_signup_t3aAfi"
       ],
@@ -151,8 +164,8 @@
       "settings": {
         "section_width": "page-width",
         "gap": 12,
-        "background_color": "{{ settings.color_palette.color3 }}",
-        "padding-block-start": 36,
+        "background_color": "{{ settings.color_palette.color1 }}",
+        "padding-block-start": 48,
         "padding-block-end": 36
       }
     },
@@ -162,7 +175,7 @@
         "copyright": {
           "type": "footer-copyright",
           "settings": {
-            "show_powered_by": true,
+            "show_powered_by": false,
             "font_size": "0.75rem",
             "case": "none"
           },
@@ -177,15 +190,18 @@
           },
           "blocks": {}
         },
+        "payment_icons": {
+          "type": "payment-icons",
+          "name": "t:names.payment_icons",
+          "settings": {},
+          "blocks": {}
+        },
         "social_links_Nyht3m": {
           "type": "social-links",
           "name": "t:names.social_media_links",
           "settings": {
-            "facebook_url": "https://facebook.com",
             "instagram_url": "https://instagram.com",
-            "youtube_url": "https://youtube.com",
-            "tiktok_url": "https://www.tiktok.com/",
-            "twitter_url": "https://x.com"
+            "tiktok_url": "https://www.tiktok.com/"
           },
           "blocks": {}
         }
@@ -193,13 +209,14 @@
       "block_order": [
         "copyright",
         "footer_policy_list_i3GaPF",
+        "payment_icons",
         "social_links_Nyht3m"
       ],
       "settings": {
         "section_width": "page-width",
         "gap": 24,
-        "divider_thickness": 0,
-        "background_color": "{{ settings.color_palette.color3 }}",
+        "divider_thickness": 0.5,
+        "background_color": "{{ settings.color_palette.color1 }}",
         "padding-block-start": 20,
         "padding-block-end": 20
       }
