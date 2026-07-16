@@ -1,0 +1,16 @@
+# Ambientes do Shopify CLI para o tema Rota das Lupas.
+# Uso: shopify theme <comando> -e <ambiente>
+#
+# ATENÇÃO: o deploy oficial é pela integração GitHub -> Shopify
+# (push na branch feature/home-rota-v1 sincroniza sozinho em ~1min).
+# NÃO use `shopify theme push` — ele sobrescreve o tema por fora do Git.
+
+[environments.dev]
+store = "rota-das-lupas.myshopify.com"
+# Servidor local com hot reload em http://127.0.0.1:9292
+# Puxa as seções/config da loja e renderiza os arquivos locais por cima.
+
+[environments.live]
+store = "rota-das-lupas.myshopify.com"
+# Só para leitura: `shopify theme pull -e live` traz settings_data.json
+# e conteúdo editados no admin de volta para o repo.
