@@ -94,6 +94,30 @@
               },
               "blocks": {}
             },
+            "text_preco_estreia": {
+              "type": "text",
+              "settings": {
+                "text": "<p>De R$ 189,00 por <strong>R$ 149,90</strong> · oferta de estreia</p>",
+                "width": "100%",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.color2 }}",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "group_hero_ctas": {
               "type": "group",
               "settings": {
@@ -132,8 +156,8 @@
                 "button_ver_colecao": {
                   "type": "button",
                   "settings": {
-                    "label": "Ver coleção",
-                    "link": "shopify://collections/all",
+                    "label": "Comprar agora",
+                    "link": "shopify://products/oculos-juliet-24k-corvette-24k",
                     "open_in_new_tab": false,
                     "style_class": "button",
                     "width": "fit-content",
@@ -146,8 +170,8 @@
                 "button_conheca": {
                   "type": "button",
                   "settings": {
-                    "label": "Conheça a Rota",
-                    "link": "shopify://collections/all",
+                    "label": "Ver coleção",
+                    "link": "shopify://collections/oculos",
                     "open_in_new_tab": false,
                     "style_class": "button-unstyled",
                     "link_text_color": "{{ settings.color_palette.background }}",
@@ -168,6 +192,7 @@
           "block_order": [
             "text_headline",
             "text_apoio",
+            "text_preco_estreia",
             "group_hero_ctas"
           ]
         }
@@ -625,7 +650,7 @@
       },
       "name": "Primeira parada",
       "settings": {
-        "collection": "all",
+        "collection": "oculos",
         "layout_type": "carousel",
         "carousel_on_mobile": true,
         "max_products": 6,
