@@ -20,7 +20,7 @@
             "text": "Frete para todo o Brasil",
             "font_size": "0.75rem",
             "case": "uppercase",
-            "letter_spacing": 1
+            "letter_spacing": "loose"
           },
           "blocks": {}
         },
@@ -30,7 +30,7 @@
             "text": "Oferta de estreia — primeira parada: 24K",
             "font_size": "0.75rem",
             "case": "uppercase",
-            "letter_spacing": 1
+            "letter_spacing": "loose"
           },
           "blocks": {}
         }

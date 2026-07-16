@@ -153,12 +153,19 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "payment_icons": {
+          "type": "payment-icons",
+          "name": "t:names.payment_icons",
+          "settings": {},
+          "blocks": {}
         }
       },
       "block_order": [
         "text_lenda",
         "group_EJMKU9",
-        "email_signup_t3aAfi"
+        "email_signup_t3aAfi",
+        "payment_icons"
       ],
       "name": "t:names.footer",
       "settings": {
@@ -190,12 +197,6 @@
           },
           "blocks": {}
         },
-        "payment_icons": {
-          "type": "payment-icons",
-          "name": "t:names.payment_icons",
-          "settings": {},
-          "blocks": {}
-        },
         "social_links_Nyht3m": {
           "type": "social-links",
           "name": "t:names.social_media_links",
@@ -209,7 +210,6 @@
       "block_order": [
         "copyright",
         "footer_policy_list_i3GaPF",
-        "payment_icons",
         "social_links_Nyht3m"
       ],
       "settings": {
