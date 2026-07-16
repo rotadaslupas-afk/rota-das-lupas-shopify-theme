@@ -729,6 +729,7 @@
         "cta_rota"
       ],
       "settings": {
+        "image": "shopify://shop_images/camelo-rota.png",
         "image_position": "left",
         "section_width": "page-width",
         "background_color": "{{ settings.color_palette.color1 }}",

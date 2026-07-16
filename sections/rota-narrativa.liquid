@@ -66,13 +66,31 @@
 
   .rota-narrativa__media {
     width: 100%;
+    /* Moldura fixa: a imagem se move dentro dela no parallax */
+    overflow: hidden;
+    border-radius: var(--style-border-radius-popover, 8px);
   }
 
   .rota-narrativa__image {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: var(--style-border-radius-popover, 8px);
+  }
+
+  /* Parallax: a imagem passeia devagar dentro da moldura enquanto a pessoa rola.
+     Só liga quando o JS marca a seção como pronta e o usuário aceita movimento. */
+  @media (prefers-reduced-motion: no-preference) {
+    .rota-narrativa--parallax .rota-narrativa__media {
+      /* recorta um pouco da altura para sobrar curso de movimento */
+      aspect-ratio: 16 / 10;
+    }
+
+    .rota-narrativa--parallax .rota-narrativa__media img {
+      height: 118%;
+      object-fit: cover;
+      will-change: transform;
+      transform: translate3d(0, var(--rota-parallax, 0px), 0);
+    }
   }
 
   .rota-narrativa__image--mobile {
