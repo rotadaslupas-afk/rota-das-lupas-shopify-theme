@@ -7,6 +7,7 @@
 
 # === Config local (pessoal, não versionar) ===
 .claude/settings.local.json
+.vs/
 
 # === Shopify CLI ===
 .shopify/

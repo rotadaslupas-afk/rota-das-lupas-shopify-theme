@@ -35,10 +35,36 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "text_desc_rota": {
+          "type": "text",
+          "name": "Collection description",
+          "settings": {
+            "text": "<p>{{ closest.collection.description }}</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-primary--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "{{ settings.color_palette.background }}",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 8,
+            "padding-block-end": 0,
+            "padding-inline-start": 40,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "text_tqQTNE"
+        "text_tqQTNE",
+        "text_desc_rota"
       ],
       "name": "Collection heading",
       "settings": {
@@ -80,7 +106,7 @@
             "filter_width": "full-width",
             "text_label_case": "default",
             "show_swatch_label": false,
-            "show_filter_label": false,
+            "show_filter_label": true,
             "enable_sorting": true,
             "enable_grid_density": false,
             "background_color": "{{ settings.color_palette.color1 }}",
@@ -310,10 +336,29 @@
                         "padding-inline-end": 0
                       },
                       "blocks": {}
+                    },
+                    "pix_price_card_rota": {
+                      "type": "custom-liquid",
+                      "name": "Preço Pix",
+                      "settings": {
+                        "custom_liquid": "{%- assign rota_pix = closest.product.price | times: 0.95 -%}<p style=\"margin:0;padding:0;font-size:0.85rem;color:#2c3a22;\"><strong>{{ rota_pix | money }}</strong> no Pix <span style=\"color:#b6893c;font-weight:600;\">(5% de desconto)</span></p>"
+                      },
+                      "blocks": {}
+                    },
+                    "swatches_rota": {
+                      "type": "swatches",
+                      "name": "Amostras de lente",
+                      "settings": {
+                        "product_swatches_alignment": "flex-start",
+                        "product_swatches_alignment_mobile": "flex-start"
+                      },
+                      "blocks": {}
                     }
                   },
                   "block_order": [
-                    "text_yYkK7E"
+                    "text_yYkK7E",
+                    "pix_price_card_rota",
+                    "swatches_rota"
                   ]
                 }
               },

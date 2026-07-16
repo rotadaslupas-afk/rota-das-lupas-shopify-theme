@@ -146,6 +146,14 @@
               },
               "blocks": {}
             },
+            "pix_price_rota": {
+              "type": "custom-liquid",
+              "name": "Preço Pix",
+              "settings": {
+                "custom_liquid": "{%- assign rota_pix = product.selected_or_first_available_variant.price | times: 0.95 -%}<p style=\"margin:0;padding:0;font-size:0.95rem;color:#2c3a22;\">ou <strong>{{ rota_pix | money }}</strong> no Pix <span style=\"color:#b6893c;font-weight:600;\">(5% de desconto)</span></p>"
+              },
+              "blocks": {}
+            },
             "text_gXMUag": {
               "type": "text",
               "name": "Product description",
@@ -191,6 +199,14 @@
                 "padding-block-end": 24,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "sku_rota": {
+              "type": "sku",
+              "name": "SKU",
+              "settings": {
+                "type_preset": "paragraph"
               },
               "blocks": {}
             },
@@ -259,8 +275,10 @@
             "text_tefwj7",
             "reviews",
             "price_a7krng",
+            "pix_price_rota",
             "text_gXMUag",
             "variant_picker_R3rGDr",
+            "sku_rota",
             "buy_buttons_eYQEYi"
           ]
         }
