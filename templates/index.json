@@ -681,7 +681,7 @@
             "case": "uppercase",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "left"
+            "alignment": "center"
           },
           "blocks": {}
         },
@@ -692,7 +692,7 @@
             "type_preset": "h2",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "left"
+            "alignment": "center"
           },
           "blocks": {}
         },
@@ -703,7 +703,7 @@
             "type_preset": "paragraph",
             "width": "100%",
             "max_width": "narrow",
-            "alignment": "left"
+            "alignment": "center"
           },
           "blocks": {}
         },

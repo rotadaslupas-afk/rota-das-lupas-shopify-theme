@@ -27,70 +27,72 @@
   "
   style="{% render 'spacing-style', settings: section.settings %}"
 >
-  {% if image_desktop %}
-    <div class="rota-narrativa__media" data-reveal>
-      {{
-        image_desktop
-        | image_url: width: 1500
-        | image_tag:
-          widths: '400, 600, 800, 1200, 1500',
-          sizes: '(min-width: 750px) 50vw, 100vw',
-          class: 'rota-narrativa__image rota-narrativa__image--desktop',
-          loading: 'lazy'
-      }}
-      {{
-        image_mobile
-        | image_url: width: 900
-        | image_tag:
-          widths: '400, 600, 900',
-          sizes: '100vw',
-          class: 'rota-narrativa__image rota-narrativa__image--mobile',
-          loading: 'lazy'
-      }}
-    </div>
-  {% endif %}
-
   <div class="rota-narrativa__content" data-reveal>
     {% content_for 'blocks' %}
   </div>
+
+  {% if image_desktop %}
+    <div class="rota-narrativa__media" data-reveal>
+      <div class="rota-narrativa__frame">
+        {{
+          image_desktop
+          | image_url: width: 1500
+          | image_tag:
+            widths: '400, 600, 800, 1200, 1500',
+            sizes: '(min-width: 750px) min(82vw, 780px), 100vw',
+            class: 'rota-narrativa__image rota-narrativa__image--desktop',
+            loading: 'lazy'
+        }}
+        {{
+          image_mobile
+          | image_url: width: 900
+          | image_tag:
+            widths: '400, 600, 900',
+            sizes: '100vw',
+            class: 'rota-narrativa__image rota-narrativa__image--mobile',
+            loading: 'lazy'
+        }}
+      </div>
+    </div>
+  {% endif %}
 </rota-reveal>
 
 {% stylesheet %}
+  /* Composição editorial centrada: a lenda em cima, o camelo emoldurado embaixo. */
   rota-reveal.rota-narrativa {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-lg);
     align-items: center;
-    overflow: hidden;
+    gap: calc(var(--gap-lg) * 1.4);
+  }
+
+  .rota-narrativa__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-md);
+    width: 100%;
+    max-width: 680px;
+    text-align: center;
   }
 
   .rota-narrativa__media {
     width: 100%;
-    /* Moldura fixa: a imagem se move dentro dela no parallax */
+    max-width: 780px;
+  }
+
+  /* Moldura cinematográfica: imagem inteira, sem corte, com assinatura dourada. */
+  .rota-narrativa__frame {
     overflow: hidden;
-    border-radius: var(--style-border-radius-popover, 8px);
+    border-radius: 16px;
+    border: 1px solid rgba(217, 183, 106, 0.4);
+    box-shadow: 0 34px 70px -34px rgba(0, 0, 0, 0.55);
   }
 
   .rota-narrativa__image {
     display: block;
     width: 100%;
     height: auto;
-  }
-
-  /* Parallax: a imagem passeia devagar dentro da moldura enquanto a pessoa rola.
-     Só liga quando o JS marca a seção como pronta e o usuário aceita movimento. */
-  @media (prefers-reduced-motion: no-preference) {
-    .rota-narrativa--parallax .rota-narrativa__media {
-      /* recorta um pouco da altura para sobrar curso de movimento */
-      aspect-ratio: 16 / 10;
-    }
-
-    .rota-narrativa--parallax .rota-narrativa__media img {
-      height: 118%;
-      object-fit: cover;
-      will-change: transform;
-      transform: translate3d(0, var(--rota-parallax, 0px), 0);
-    }
   }
 
   .rota-narrativa__image--mobile {
@@ -107,31 +109,15 @@
     }
   }
 
-  .rota-narrativa__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
-    width: 100%;
-  }
-
-  @media screen and (min-width: 750px) {
-    rota-reveal.rota-narrativa {
-      flex-direction: row;
-      gap: var(--gap-2xl);
-    }
-
-    .rota-narrativa--image-right .rota-narrativa__media {
-      order: 2;
-    }
-
-    .rota-narrativa__media,
-    .rota-narrativa__content {
-      flex: 1 1 50%;
-      min-width: 0;
-    }
-  }
-
   @media (prefers-reduced-motion: no-preference) {
+    /* Parallax: a moldura inteira flutua devagar enquanto a seção cruza a tela.
+       Nada é recortado; o movimento vem do quadro, não de dentro dele. */
+    .rota-narrativa--parallax .rota-narrativa__frame {
+      will-change: transform;
+      transform: translate3d(0, var(--rota-parallax, 0px), 0);
+    }
+
+    /* Reveal: entrada suave dos dois blocos. */
     .rota-reveal--ready [data-reveal] {
       opacity: 0;
       transform: translateY(24px);

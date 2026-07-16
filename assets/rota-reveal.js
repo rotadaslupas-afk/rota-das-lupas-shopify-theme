@@ -6,8 +6,9 @@ import { Component } from '@theme/component';
  * Two effects, both optional and gated behind `prefers-reduced-motion`:
  *
  * 1. Reveal — fades `[data-reveal]` children in as they enter the viewport.
- * 2. Parallax — drifts `[data-parallax]` slowly inside its frame while the
- *    section is on screen, so the camel reads as moving through the desert.
+ * 2. Parallax — floats the framed image (`.rota-narrativa__frame`) slowly
+ *    while the section is on screen, so the camel reads as drifting through
+ *    the desert. The image itself is never cropped by the effect.
  *
  * Content stays fully visible without JS: the animation styles only apply once
  * this component adds `rota-reveal--ready` / `rota-narrativa--parallax`.
@@ -22,13 +23,13 @@ class RotaReveal extends Component {
   #parallaxObserver;
 
   /** @type {HTMLElement | null} */
-  #media = null;
+  #floating = null;
 
   /** @type {number | undefined} */
   #frame;
 
   /** Maximum drift in each direction, in pixels. */
-  #range = 28;
+  #range = 32;
 
   connectedCallback() {
     super.connectedCallback();
@@ -68,8 +69,8 @@ class RotaReveal extends Component {
   }
 
   #setupParallax() {
-    this.#media = this.querySelector('.rota-narrativa__media');
-    if (!this.#media?.querySelector('img')) return;
+    this.#floating = this.querySelector('.rota-narrativa__frame');
+    if (!this.#floating?.querySelector('img')) return;
 
     this.classList.add('rota-narrativa--parallax');
 
@@ -103,8 +104,8 @@ class RotaReveal extends Component {
   }
 
   #updateParallax() {
-    const media = this.#media;
-    if (!media) return;
+    const floating = this.#floating;
+    if (!floating) return;
 
     const rect = this.getBoundingClientRect();
     const viewport = window.innerHeight;
@@ -113,8 +114,7 @@ class RotaReveal extends Component {
     const progress = 1 - (2 * (rect.top + rect.height / 2)) / (viewport + rect.height);
     const offset = (Math.max(-1, Math.min(1, progress)) * this.#range).toFixed(2);
 
-    // Inherited by whichever image is currently visible (desktop or mobile).
-    media.style.setProperty('--rota-parallax', `${offset}px`);
+    floating.style.setProperty('--rota-parallax', `${offset}px`);
   }
 }
 
