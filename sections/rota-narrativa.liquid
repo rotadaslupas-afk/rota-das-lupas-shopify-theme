@@ -83,10 +83,28 @@
 
   /* Moldura cinematográfica: imagem inteira, sem corte, com assinatura dourada. */
   .rota-narrativa__frame {
+    position: relative;
     overflow: hidden;
     border-radius: 16px;
     border: 1px solid rgba(217, 183, 106, 0.4);
     box-shadow: 0 34px 70px -34px rgba(0, 0, 0, 0.55);
+  }
+
+  /* Brilho dourado que atravessa a moldura de tempos em tempos. */
+  .rota-narrativa__frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(230, 207, 147, 0.18) 50%,
+      transparent 60%
+    );
+    background-size: 250% 100%;
+    background-position: 150% 0;
   }
 
   .rota-narrativa__image {
@@ -110,11 +128,17 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    /* Parallax: a moldura inteira flutua devagar enquanto a seção cruza a tela.
-       Nada é recortado; o movimento vem do quadro, não de dentro dele. */
-    .rota-narrativa--parallax .rota-narrativa__frame {
+    /* Ken Burns: o camelo faz uma deriva lenta e contínua dentro da moldura.
+       Sempre em movimento, sem depender de scroll. A moldura recorta o excesso
+       do zoom, então nada de borda branca aparece. */
+    .rota-narrativa__frame img {
+      transform-origin: 62% 42%;
+      animation: rota-kenburns 20s ease-in-out infinite alternate;
       will-change: transform;
-      transform: translate3d(0, var(--rota-parallax, 0px), 0);
+    }
+
+    .rota-narrativa__frame::after {
+      animation: rota-shimmer 9s ease-in-out 2s infinite;
     }
 
     /* Reveal: entrada suave dos dois blocos. */
@@ -133,6 +157,25 @@
     .rota-reveal--ready [data-reveal].is-revealed {
       opacity: 1;
       transform: none;
+    }
+  }
+
+  @keyframes rota-kenburns {
+    from {
+      transform: scale(1.04) translate3d(2.5%, 1%, 0);
+    }
+    to {
+      transform: scale(1.17) translate3d(-3.5%, -2.5%, 0);
+    }
+  }
+
+  @keyframes rota-shimmer {
+    0% {
+      background-position: 150% 0;
+    }
+    35%,
+    100% {
+      background-position: -50% 0;
     }
   }
 {% endstylesheet %}
