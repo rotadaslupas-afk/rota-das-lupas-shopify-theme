@@ -266,7 +266,10 @@
               "blocks": {}
             }
           },
-          "block_order": ["icon_frete", "text_frete"]
+          "block_order": [
+            "icon_frete",
+            "text_frete"
+          ]
         },
         "beneficio_pagamento": {
           "type": "group",
@@ -304,7 +307,10 @@
               "blocks": {}
             }
           },
-          "block_order": ["icon_pagamento", "text_pagamento"]
+          "block_order": [
+            "icon_pagamento",
+            "text_pagamento"
+          ]
         },
         "beneficio_troca": {
           "type": "group",
@@ -342,7 +348,10 @@
               "blocks": {}
             }
           },
-          "block_order": ["icon_troca", "text_troca"]
+          "block_order": [
+            "icon_troca",
+            "text_troca"
+          ]
         },
         "beneficio_suporte": {
           "type": "group",
@@ -380,7 +389,10 @@
               "blocks": {}
             }
           },
-          "block_order": ["icon_suporte", "text_suporte"]
+          "block_order": [
+            "icon_suporte",
+            "text_suporte"
+          ]
         }
       },
       "block_order": [
@@ -808,12 +820,49 @@
         "padding-block-start": 72,
         "padding-block-end": 72
       }
+    },
+    "rota_modelos": {
+      "type": "rota-modelos",
+      "blocks": {
+        "m_doublex": {
+          "type": "modelo",
+          "settings": {
+            "collection": "double-x"
+          }
+        },
+        "m_juliet": {
+          "type": "modelo",
+          "settings": {
+            "collection": "juliet"
+          }
+        },
+        "m_penny": {
+          "type": "modelo",
+          "settings": {
+            "collection": "penny"
+          }
+        }
+      },
+      "block_order": [
+        "m_doublex",
+        "m_juliet",
+        "m_penny"
+      ],
+      "settings": {
+        "eyebrow": "Escolha seu caminho",
+        "heading": "Cada rota pede uma lupa",
+        "section_width": "page-width",
+        "background_color": "",
+        "padding-block-start": 72,
+        "padding-block-end": 72
+      }
     }
   },
   "order": [
     "hero_rota",
     "beneficios",
     "destaques",
+    "rota_modelos",
     "rota_narrativa",
     "newsletter"
   ]

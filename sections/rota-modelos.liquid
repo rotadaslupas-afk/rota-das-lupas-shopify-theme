@@ -1,0 +1,193 @@
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"></div>
+<div
+  class="rota-modelos section section--{{ section.settings.section_width }} spacing-style{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  {% if section.settings.eyebrow != blank or section.settings.heading != blank %}
+    <div class="rota-modelos__head">
+      {% if section.settings.eyebrow != blank %}
+        <p class="rota-modelos__eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="rota-modelos__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="rota-modelos__grid">
+    {% for block in section.blocks %}
+      {%- liquid
+        assign col = block.settings.collection
+        assign img = col.image | default: col.products.first.featured_image
+        assign label = block.settings.label | default: col.title
+      -%}
+      <a
+        class="rota-modelo"
+        href="{{ col.url | default: '#' }}"
+        {{ block.shopify_attributes }}
+      >
+        <div class="rota-modelo__media">
+          {% if img %}
+            {{
+              img
+              | image_url: width: 900
+              | image_tag:
+                widths: '300, 450, 600, 900',
+                sizes: '(min-width: 750px) 33vw, 88vw',
+                class: 'rota-modelo__img',
+                loading: 'lazy'
+            }}
+          {% else %}
+            <div class="rota-modelo__placeholder">{{ label }}</div>
+          {% endif %}
+        </div>
+        <div class="rota-modelo__body">
+          <span class="rota-modelo__name">{{ label }}</span>
+          <span class="rota-modelo__cta">
+            Ver modelo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .rota-modelos { display: flex; flex-direction: column; gap: var(--gap-xl, 2rem); }
+
+  .rota-modelos__head { text-align: center; max-width: 44ch; margin-inline: auto; }
+  .rota-modelos__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-primary, #b6893c);
+    margin: 0 0 0.5rem;
+  }
+  .rota-modelos__title { margin: 0; }
+
+  .rota-modelos__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .rota-modelo {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #fff;
+    aspect-ratio: 3 / 4;
+    background: #2c3a22;
+  }
+
+  .rota-modelo__media { position: absolute; inset: 0; }
+  .rota-modelo__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .rota-modelo__placeholder {
+    display: grid; place-items: center; height: 100%;
+    font-family: var(--font-heading--family, serif); font-size: 1.5rem; color: rgba(255,255,255,0.6);
+  }
+
+  /* véu escuro pra leitura do texto, mais forte embaixo */
+  .rota-modelo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(20, 26, 15, 0.82) 0%, rgba(20, 26, 15, 0.15) 45%, transparent 70%);
+    z-index: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  .rota-modelo__body {
+    position: absolute;
+    z-index: 2;
+    left: 0; right: 0; bottom: 0;
+    padding: 1.25rem 1.4rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .rota-modelo__name {
+    font-family: var(--font-heading--family, serif);
+    font-size: 1.6rem;
+    line-height: 1.05;
+  }
+  .rota-modelo__cta {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.85rem; font-weight: 600;
+    color: var(--color-primary, #e6cf93);
+    white-space: nowrap;
+  }
+  .rota-modelo__cta svg { transition: transform 0.4s ease; }
+
+  @media (hover: hover) {
+    .rota-modelo:hover .rota-modelo__img { transform: scale(1.06); }
+    .rota-modelo:hover .rota-modelo__cta svg { transform: translateX(4px); }
+  }
+
+  @media screen and (min-width: 750px) {
+    .rota-modelos__grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .rota-modelo { aspect-ratio: 3 / 4.2; }
+    .rota-modelo__name { font-size: 1.9rem; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Escolha seu modelo",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sobretítulo", "default": "Escolha seu caminho" },
+    { "type": "text", "id": "heading", "label": "Título", "default": "Cada rota pede uma lupa" },
+    {
+      "type": "select", "id": "section_width", "label": "Largura",
+      "options": [
+        { "value": "page-width", "label": "Página" },
+        { "value": "full-width", "label": "Cheia" }
+      ],
+      "default": "page-width"
+    },
+    { "type": "color", "id": "background_color", "label": "Cor de fundo", "placeholder": "t:settings.default" },
+    { "type": "header", "content": "t:content.padding" },
+    { "type": "range", "id": "padding-block-start", "label": "t:settings.top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding-block-end", "label": "t:settings.bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "modelo",
+      "name": "Modelo",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Coleção" },
+        { "type": "text", "id": "label", "label": "Nome (opcional, senão usa o da coleção)" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Escolha seu modelo",
+      "blocks": [
+        { "type": "modelo" },
+        { "type": "modelo" },
+        { "type": "modelo" }
+      ]
+    }
+  ]
+}
+{% endschema %}
