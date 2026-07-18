@@ -61,8 +61,9 @@
       : `<span class="card__ph">${escapeHtml(p.name)}</span>`;
     const flag = p.flag ? `<span class="card__flag">${escapeHtml(p.flag)}</span>` : "";
     const old = p.oldPrice ? `<s>${escapeHtml(p.oldPrice)}</s>` : "";
+    const href = p.url ? ` href="${p.url}"` : "";
     return `
-      <article class="card reveal">
+      <a class="card reveal"${href}>
         <div class="card__media">
           ${flag}
           ${media}
@@ -72,12 +73,12 @@
           <p class="card__desc">${escapeHtml(p.desc)}</p>
           <div class="card__foot">
             <span class="card__price">${old}${escapeHtml(p.price)}</span>
-            <button class="card__add" type="button" aria-label="Adicionar ${escapeHtml(p.name)} ao carrinho">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
+            <span class="card__add" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
           </div>
         </div>
-      </article>`;
+      </a>`;
   }
 
   /* ---- Ano no rodapé ---- */
