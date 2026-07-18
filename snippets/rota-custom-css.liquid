@@ -1,0 +1,21 @@
+{% comment %}
+  CSS próprio da Rota das Lupas — ajustes finos que os settings do tema não
+  cobrem. Carregado no <head> pelo layout/theme.liquid.
+{% endcomment %}
+<style>
+  /* ----------------------------------------------------------------------
+     HERO — tipografia realmente responsiva.
+     O sistema fluido do tema trava o mínimo em ~48px para títulos grandes,
+     deixando o hero gigante no celular. Aqui o título é discreto no mobile
+     e imponente no desktop; o texto de apoio e o preço acompanham.
+     ---------------------------------------------------------------------- */
+  [id*="hero_rota"] h1 {
+    font-size: clamp(2.1rem, 6.4vw, 5rem) !important;
+    line-height: 1.03 !important;
+  }
+
+  [id*="hero_rota"] p {
+    font-size: clamp(0.95rem, 1.9vw, 1.15rem) !important;
+    line-height: 1.45 !important;
+  }
+</style>
