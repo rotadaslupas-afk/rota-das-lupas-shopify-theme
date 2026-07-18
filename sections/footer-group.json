@@ -67,7 +67,7 @@
               "name": "t:names.menu",
               "settings": {
                 "menu": "footer",
-                "heading": "Lupas",
+                "heading": "Explorar",
                 "menu_spacing": 4,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
@@ -85,27 +85,8 @@
               "type": "menu",
               "name": "t:names.menu",
               "settings": {
-                "menu": "",
+                "menu": "ajuda",
                 "heading": "Ajuda",
-                "menu_spacing": 4,
-                "show_as_accordion": false,
-                "accordion_icon": "caret",
-                "accordion_dividers": false,
-                "heading_preset": "h4",
-                "link_preset": "paragraph",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "menu_n8zrAw": {
-              "type": "menu",
-              "name": "t:names.menu",
-              "settings": {
-                "menu": "",
-                "heading": "A Rota",
                 "menu_spacing": 4,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
@@ -122,8 +103,7 @@
           },
           "block_order": [
             "menu_k94JXn",
-            "menu_CY8HUp",
-            "menu_n8zrAw"
+            "menu_CY8HUp"
           ]
         },
         "email_signup_t3aAfi": {
