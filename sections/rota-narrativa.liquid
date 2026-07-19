@@ -9,8 +9,8 @@
     render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
   endif
 
-  assign image_desktop = section.settings.image
-  assign image_mobile = section.settings.image_mobile | default: section.settings.image
+  assign video = section.settings.video
+  assign image_fallback = section.settings.image
 %}
 
 <div
@@ -22,7 +22,6 @@
     section
     spacing-style
     section--{{ section.settings.section_width }}
-    rota-narrativa--image-{{ section.settings.image_position }}
     {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
   "
   style="{% render 'spacing-style', settings: section.settings %}"
@@ -31,39 +30,47 @@
     {% content_for 'blocks' %}
   </div>
 
-  {% if image_desktop %}
-    <div class="rota-narrativa__media" data-reveal>
-      <div class="rota-narrativa__frame">
-        {{
-          image_desktop
-          | image_url: width: 1500
-          | image_tag:
-            widths: '400, 600, 800, 1200, 1500',
-            sizes: '(min-width: 750px) min(82vw, 780px), 100vw',
-            class: 'rota-narrativa__image rota-narrativa__image--desktop',
-            loading: 'lazy'
-        }}
-        {{
-          image_mobile
-          | image_url: width: 900
-          | image_tag:
-            widths: '400, 600, 900',
-            sizes: '100vw',
-            class: 'rota-narrativa__image rota-narrativa__image--mobile',
-            loading: 'lazy'
-        }}
-      </div>
+  {% if video %}
+    <div class="rota-narrativa__band" data-reveal>
+      <video
+        class="rota-narrativa__video"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        {% if video.preview_image %}poster="{{ video.preview_image | image_url: width: 1600 }}"{% endif %}
+        aria-label="Camelo da Rota das Lupas andando no deserto"
+      >
+        {% for source in video.sources %}
+          {% if source.format == 'mp4' %}
+            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+          {% endif %}
+        {% endfor %}
+      </video>
+    </div>
+  {% elsif image_fallback %}
+    <div class="rota-narrativa__band" data-reveal>
+      {{
+        image_fallback
+        | image_url: width: 2000
+        | image_tag:
+          widths: '600, 1000, 1400, 2000',
+          sizes: '100vw',
+          class: 'rota-narrativa__video',
+          loading: 'lazy'
+      }}
     </div>
   {% endif %}
 </rota-reveal>
 
 {% stylesheet %}
-  /* Composição editorial centrada: a lenda em cima, o camelo emoldurado embaixo. */
   rota-reveal.rota-narrativa {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: calc(var(--gap-lg) * 1.4);
+    padding-inline: 0;
   }
 
   .rota-narrativa__content {
@@ -73,75 +80,33 @@
     gap: var(--gap-md);
     width: 100%;
     max-width: 680px;
+    margin-inline: auto;
+    padding-inline: var(--gutter, 1.5rem);
     text-align: center;
   }
 
-  .rota-narrativa__media {
+  /* Faixa de vídeo em largura total — lado a lado, o camelo INTEIRO andando.
+     A faixa usa a proporção do vídeo (16:9) para mostrar o quadro completo,
+     sem cortar as patas. */
+  .rota-narrativa__band {
     width: 100%;
-    max-width: 780px;
-  }
-
-  /* Moldura cinematográfica: imagem inteira, sem corte, com assinatura dourada. */
-  .rota-narrativa__frame {
-    position: relative;
+    aspect-ratio: 1916 / 1080;
     overflow: hidden;
-    border-radius: 16px;
-    border: 1px solid rgba(217, 183, 106, 0.4);
-    box-shadow: 0 34px 70px -34px rgba(0, 0, 0, 0.55);
+    position: relative;
+    line-height: 0;
   }
 
-  /* Brilho dourado que atravessa a moldura de tempos em tempos. */
-  .rota-narrativa__frame::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    background: linear-gradient(
-      105deg,
-      transparent 40%,
-      rgba(230, 207, 147, 0.18) 50%,
-      transparent 60%
-    );
-    background-size: 250% 100%;
-    background-position: 150% 0;
-  }
-
-  .rota-narrativa__image {
-    display: block;
+  .rota-narrativa__video {
     width: 100%;
-    height: auto;
-  }
-
-  .rota-narrativa__image--mobile {
-    display: none;
-  }
-
-  @media screen and (max-width: 749px) {
-    .rota-narrativa__image--desktop {
-      display: none;
-    }
-
-    .rota-narrativa__image--mobile {
-      display: block;
-    }
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* só espelha (o camelo anda para a direita); sem zoom, para o corpo todo aparecer */
+    transform: scaleX(-1);
+    transform-origin: center;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    /* Ken Burns: o camelo faz uma deriva lenta e contínua dentro da moldura.
-       Sempre em movimento, sem depender de scroll. A moldura recorta o excesso
-       do zoom, então nada de borda branca aparece. */
-    .rota-narrativa__frame img {
-      transform-origin: 62% 42%;
-      animation: rota-kenburns 20s ease-in-out infinite alternate;
-      will-change: transform;
-    }
-
-    .rota-narrativa__frame::after {
-      animation: rota-shimmer 9s ease-in-out 2s infinite;
-    }
-
-    /* Reveal: entrada suave dos dois blocos. */
     .rota-reveal--ready [data-reveal] {
       opacity: 0;
       transform: translateY(24px);
@@ -154,28 +119,14 @@
       transition-delay: 0.15s;
     }
 
-    .rota-reveal--ready [data-reveal].is-revealed {
+    /* o reveal não pode brigar com o espelhamento do vídeo */
+    .rota-reveal--ready .rota-narrativa__band.is-revealed {
       opacity: 1;
       transform: none;
     }
-  }
-
-  @keyframes rota-kenburns {
-    from {
-      transform: scale(1.04) translate3d(2.5%, 1%, 0);
-    }
-    to {
-      transform: scale(1.17) translate3d(-3.5%, -2.5%, 0);
-    }
-  }
-
-  @keyframes rota-shimmer {
-    0% {
-      background-position: 150% 0;
-    }
-    35%,
-    100% {
-      background-position: -50% 0;
+    .rota-reveal--ready [data-reveal].is-revealed {
+      opacity: 1;
+      transform: none;
     }
   }
 {% endstylesheet %}
@@ -195,46 +146,24 @@
   ],
   "settings": [
     {
+      "type": "video",
+      "id": "video",
+      "label": "Vídeo (camelo andando)"
+    },
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "Imagem"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_mobile",
-      "label": "Imagem (mobile)"
-    },
-    {
-      "type": "select",
-      "id": "image_position",
-      "label": "Posição da imagem",
-      "options": [
-        {
-          "value": "left",
-          "label": "Esquerda"
-        },
-        {
-          "value": "right",
-          "label": "Direita"
-        }
-      ],
-      "default": "left"
+      "label": "Imagem (fallback, se não houver vídeo)"
     },
     {
       "type": "select",
       "id": "section_width",
       "label": "Largura",
       "options": [
-        {
-          "value": "page-width",
-          "label": "Página"
-        },
-        {
-          "value": "full-width",
-          "label": "Cheia"
-        }
+        { "value": "page-width", "label": "Página" },
+        { "value": "full-width", "label": "Cheia" }
       ],
-      "default": "page-width"
+      "default": "full-width"
     },
     {
       "type": "color",
@@ -264,7 +193,7 @@
       "max": 120,
       "step": 4,
       "unit": "px",
-      "default": 64
+      "default": 0
     }
   ],
   "presets": [
@@ -272,10 +201,9 @@
       "name": "A Rota — narrativa",
       "category": "t:categories.storytelling",
       "settings": {
-        "image_position": "left",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "padding-block-start": 80,
-        "padding-block-end": 80
+        "padding-block-end": 0
       },
       "blocks": {
         "eyebrow": {
@@ -286,7 +214,7 @@
             "case": "uppercase",
             "letter_spacing": "loose",
             "width": "100%",
-            "alignment": "left"
+            "alignment": "center"
           }
         },
         "frase_1": {
@@ -295,7 +223,7 @@
             "text": "<h2>Toda caravana segue o mesmo caminho. Um camelo não seguiu.</h2>",
             "type_preset": "h2",
             "width": "100%",
-            "alignment": "left"
+            "alignment": "center"
           }
         },
         "frase_2": {
@@ -304,7 +232,7 @@
             "text": "<p>Foi assim que a Rota começou. E ninguém escolhe a rota por você.</p>",
             "type_preset": "paragraph",
             "width": "100%",
-            "alignment": "left"
+            "alignment": "center"
           }
         },
         "cta": {

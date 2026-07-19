@@ -49,7 +49,7 @@
             "text_headline": {
               "type": "text",
               "settings": {
-                "text": "<h1>Óculos com presença.</h1>",
+                "text": "<h1>Óculos Juliet, Double-X e Penny com presença.</h1>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -741,12 +741,12 @@
         "cta_rota"
       ],
       "settings": {
+        "video": "shopify://files/videos/rota-camelo-andando.mp4",
         "image": "shopify://shop_images/camelo-rota.png",
-        "image_position": "left",
-        "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.color1 }}",
+        "section_width": "full-width",
+        "background_color": "",
         "padding-block-start": 80,
-        "padding-block-end": 80
+        "padding-block-end": 0
       }
     },
     "newsletter": {
