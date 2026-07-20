@@ -1,0 +1,406 @@
+{% comment %}
+  Ajuda / Perguntas frequentes.
+  Acordeão nativo (<details>/<summary>) — acessível, sem JS. Blocos:
+  - "group": divisor de tema
+  - "qa": pergunta + resposta
+  Voz da marca: _marca/identidade/voz-da-marca.md
+{% endcomment %}
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<div
+  class="
+    rota-faq
+    section
+    spacing-style
+    section--{{ section.settings.section_width }}
+    {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
+  "
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <header class="rota-faq__head">
+    {% if section.settings.eyebrow != blank %}
+      <span class="rota-faq__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <h1 class="rota-faq__title">{{ section.settings.title }}</h1>
+    {% endif %}
+    {% if section.settings.intro != blank %}
+      <p class="rota-faq__intro">{{ section.settings.intro }}</p>
+    {% endif %}
+  </header>
+
+  <div class="rota-faq__list">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'group' %}
+          <h2 class="rota-faq__group" {{ block.shopify_attributes }}>{{ block.settings.title }}</h2>
+        {% when 'qa' %}
+          <details class="rota-faq__item" {{ block.shopify_attributes }}>
+            <summary class="rota-faq__q">
+              <span class="rota-faq__q-text">{{ block.settings.question }}</span>
+              <span class="rota-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="rota-faq__a">{{ block.settings.answer }}</div>
+          </details>
+      {% endcase %}
+    {% endfor %}
+  </div>
+
+  {% if section.settings.contact_heading != blank or section.settings.contact_label != blank %}
+    <aside class="rota-faq__contact">
+      {% if section.settings.contact_heading != blank %}
+        <p class="rota-faq__contact-heading">{{ section.settings.contact_heading }}</p>
+      {% endif %}
+      {% if section.settings.contact_text != blank %}
+        <p class="rota-faq__contact-text">{{ section.settings.contact_text }}</p>
+      {% endif %}
+      {% if section.settings.contact_label != blank %}
+        <a class="button rota-faq__contact-btn" href="{{ section.settings.contact_link | default: '#' }}">
+          {{ section.settings.contact_label }}
+        </a>
+      {% endif %}
+    </aside>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .rota-faq {
+    --rota-olive: var(--color-primary, #2c3a22);
+    --rota-gold: #b6893c;
+    --rota-line: color-mix(in srgb, var(--color-foreground, #1a1a17) 14%, transparent);
+    --rota-max: 760px;
+  }
+
+  .rota-faq__head {
+    max-width: var(--rota-max);
+    margin: 0 auto clamp(2rem, 5vw, 3rem);
+    padding-inline: var(--gutter, 1.5rem);
+    text-align: center;
+  }
+
+  .rota-faq__eyebrow {
+    display: block;
+    font-family: var(--font-body--family, sans-serif);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    /* Tinta (não dourado) — o cabeçalho fica sobre o creme, onde o dourado
+       teria contraste baixo (2.8:1). Igual aos sobretítulos da home. */
+    color: var(--color-foreground, #1a1a17);
+    margin-bottom: 0.85rem;
+  }
+
+  .rota-faq__title {
+    font-family: var(--font-primary--family, serif);
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .rota-faq__intro {
+    font-family: var(--font-body--family, sans-serif);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.6;
+    opacity: 0.8;
+    margin: 0.9rem auto 0;
+    max-width: 46ch;
+  }
+
+  .rota-faq__list {
+    max-width: var(--rota-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter, 1.5rem);
+  }
+
+  .rota-faq__group {
+    font-family: var(--font-primary--family, serif);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+    line-height: 1.2;
+    margin: clamp(2.25rem, 5vw, 3rem) 0 0.5rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .rota-faq__group::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: var(--rota-gold);
+    margin-top: 0.75rem;
+  }
+
+  .rota-faq__group:first-child {
+    margin-top: 0;
+  }
+
+  /* Acordeão */
+  .rota-faq__item {
+    border-bottom: 1px solid var(--rota-line);
+  }
+
+  .rota-faq__q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    list-style: none;
+    padding: clamp(1rem, 2.2vw, 1.35rem) 0;
+    font-family: var(--font-body--family, sans-serif);
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
+    font-weight: 500;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+  }
+
+  .rota-faq__q::-webkit-details-marker {
+    display: none;
+  }
+
+  .rota-faq__q:hover {
+    color: var(--rota-gold);
+  }
+
+  /* Ícone +/- desenhado em CSS */
+  .rota-faq__icon {
+    position: relative;
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+
+  .rota-faq__icon::before,
+  .rota-faq__icon::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 auto 0;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .rota-faq__icon::after {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  .rota-faq__item[open] .rota-faq__icon::after {
+    transform: translateY(-50%) rotate(0);
+    opacity: 0;
+  }
+
+  .rota-faq__item[open] .rota-faq__q {
+    color: var(--rota-gold);
+  }
+
+  .rota-faq__a {
+    padding: 0 0 clamp(1.15rem, 2.4vw, 1.5rem);
+    max-width: 62ch;
+  }
+
+  .rota-faq__a :where(p) {
+    font-family: var(--font-body--family, sans-serif);
+    font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+    line-height: 1.7;
+    opacity: 0.85;
+    margin: 0 0 0.75em;
+  }
+
+  .rota-faq__a :where(p):last-child {
+    margin-bottom: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .rota-faq__item[open] .rota-faq__a {
+      animation: rota-faq-in 0.35s ease;
+    }
+    @keyframes rota-faq-in {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: none; }
+    }
+  }
+
+  /* Contato */
+  .rota-faq__contact {
+    max-width: var(--rota-max);
+    margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+    padding: clamp(2rem, 5vw, 3rem) var(--gutter, 1.5rem);
+    text-align: center;
+    background: var(--rota-olive);
+    color: var(--color-background, #f7f2e7);
+    border-radius: 16px;
+  }
+
+  .rota-faq__contact-heading {
+    font-family: var(--font-primary--family, serif);
+    font-weight: 500;
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+
+  .rota-faq__contact-text {
+    font-family: var(--font-body--family, sans-serif);
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0 auto 1.5rem;
+    max-width: 40ch;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Ajuda / FAQ",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Cabeçalho"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sobretítulo",
+      "default": "Ajuda"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Perguntas frequentes"
+    },
+    {
+      "type": "text",
+      "id": "intro",
+      "label": "Introdução",
+      "default": "As dúvidas que mais chegam pra gente. Se a sua não estiver aqui, é só chamar."
+    },
+    {
+      "type": "header",
+      "content": "Bloco de contato (fim da página)"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Título",
+      "default": "Não achou o que procurava?"
+    },
+    {
+      "type": "text",
+      "id": "contact_text",
+      "label": "Texto",
+      "default": "Fala com a gente. Resposta rápida, sem robô."
+    },
+    {
+      "type": "text",
+      "id": "contact_label",
+      "label": "Botão",
+      "default": "Fale com a gente"
+    },
+    {
+      "type": "url",
+      "id": "contact_link",
+      "label": "Link do botão"
+    },
+    {
+      "type": "header",
+      "content": "t:content.section_layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        { "value": "page-width", "label": "t:options.page" },
+        { "value": "full-width", "label": "t:options.full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Cor de fundo",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Tema (divisor)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título do tema",
+          "default": "Tema"
+        }
+      ]
+    },
+    {
+      "type": "qa",
+      "name": "Pergunta",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Pergunta",
+          "default": "Pergunta"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Resposta",
+          "default": "<p>Resposta.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ajuda / FAQ",
+      "category": "t:categories.storytelling"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,142 @@
+{
+  "sections": {
+    "faq": {
+      "type": "rota-faq",
+      "settings": {
+        "eyebrow": "Ajuda",
+        "title": "Perguntas frequentes",
+        "intro": "As dúvidas que mais chegam pra gente. Se a sua não estiver aqui, é só chamar.",
+        "contact_heading": "Não achou o que procurava?",
+        "contact_text": "Fala com a gente. Resposta rápida, sem robô.",
+        "contact_label": "Fale com a gente",
+        "contact_link": "mailto:rotadaslupas@gmail.com",
+        "section_width": "page-width",
+        "padding-block-start": 56,
+        "padding-block-end": 72
+      },
+      "blocks": {
+        "g_envio": {
+          "type": "group",
+          "settings": { "title": "Pedidos e envio" }
+        },
+        "qa_envio_brasil": {
+          "type": "qa",
+          "settings": {
+            "question": "Vocês entregam em todo o Brasil?",
+            "answer": "<p>Entregamos, sim. Todo pedido sai com envio rastreado, do nosso caminho pro seu.</p>"
+          }
+        },
+        "qa_prazo": {
+          "type": "qa",
+          "settings": {
+            "question": "Qual é o prazo de entrega?",
+            "answer": "<p>Depende de onde você está. O prazo estimado e o valor do frete aparecem no checkout, antes de fechar o pedido. Assim que a lupa é postada, o código de rastreio chega no seu e-mail.</p>"
+          }
+        },
+        "qa_rastreio": {
+          "type": "qa",
+          "settings": {
+            "question": "Como acompanho meu pedido?",
+            "answer": "<p>A gente manda o código de rastreio por e-mail assim que a lupa sai daqui. É só acompanhar por ele.</p>"
+          }
+        },
+        "g_trocas": {
+          "type": "group",
+          "settings": { "title": "Trocas e devoluções" }
+        },
+        "qa_troca_gostar": {
+          "type": "qa",
+          "settings": {
+            "question": "Posso trocar se não for a minha rota?",
+            "answer": "<p>Pode. Você tem até 7 dias corridos depois de receber pra pedir a troca ou a devolução. É seu direito, e a gente faz questão de honrar.</p>"
+          }
+        },
+        "qa_troca_como": {
+          "type": "qa",
+          "settings": {
+            "question": "Como funciona a troca?",
+            "answer": "<p>Fala com a gente por e-mail e conta o que aconteceu. A gente resolve o caminho de volta com você. A lupa precisa voltar sem sinais de uso, na embalagem que chegou.</p>"
+          }
+        },
+        "qa_defeito": {
+          "type": "qa",
+          "settings": {
+            "question": "E se chegar com defeito?",
+            "answer": "<p>Se chegou fora do padrão, a gente troca. Manda uma foto no e-mail que a gente cuida do resto.</p>"
+          }
+        },
+        "g_pagamento": {
+          "type": "group",
+          "settings": { "title": "Pagamento" }
+        },
+        "qa_formas": {
+          "type": "qa",
+          "settings": {
+            "question": "Quais são as formas de pagamento?",
+            "answer": "<p>Pix, cartão de crédito e parcelamento. Sem surpresa no fim.</p>"
+          }
+        },
+        "qa_pix": {
+          "type": "qa",
+          "settings": {
+            "question": "Tem desconto no Pix?",
+            "answer": "<p>Tem. O valor no Pix já aparece com a condição na hora de fechar o pedido.</p>"
+          }
+        },
+        "qa_seguro": {
+          "type": "qa",
+          "settings": {
+            "question": "É seguro comprar aqui?",
+            "answer": "<p>É. O pagamento passa por ambiente seguro e a gente nunca guarda os dados do seu cartão.</p>"
+          }
+        },
+        "g_lupas": {
+          "type": "group",
+          "settings": { "title": "As lupas" }
+        },
+        "qa_uv": {
+          "type": "qa",
+          "settings": {
+            "question": "As lentes protegem do sol?",
+            "answer": "<p>Protegem. As lentes filtram os raios UV — é o básico que a gente não abre mão.</p>"
+          }
+        },
+        "qa_modelos": {
+          "type": "qa",
+          "settings": {
+            "question": "Vocês têm vários modelos e tipos de lente?",
+            "answer": "<p>Vários. Do espelhado ao mais discreto. Cada modelo passa pela nossa avaliação antes de entrar na Rota.</p>"
+          }
+        },
+        "qa_escolher": {
+          "type": "qa",
+          "settings": {
+            "question": "Como escolho a minha lupa?",
+            "answer": "<p>Olha a coleção com calma. Cada lupa tem fotos e a descrição do estilo. Se ficar entre duas, fala com a gente que a gente ajuda.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "g_envio",
+        "qa_envio_brasil",
+        "qa_prazo",
+        "qa_rastreio",
+        "g_trocas",
+        "qa_troca_gostar",
+        "qa_troca_como",
+        "qa_defeito",
+        "g_pagamento",
+        "qa_formas",
+        "qa_pix",
+        "qa_seguro",
+        "g_lupas",
+        "qa_uv",
+        "qa_modelos",
+        "qa_escolher"
+      ]
+    }
+  },
+  "order": [
+    "faq"
+  ]
+}
