@@ -10,8 +10,14 @@
      e imponente no desktop; o texto de apoio e o preço acompanham.
      ---------------------------------------------------------------------- */
   [id*="hero_rota"] h1 {
-    font-size: clamp(2.1rem, 6.4vw, 5rem) !important;
+    font-size: clamp(2.6rem, 7vw, 5.75rem) !important;
     line-height: 1.03 !important;
+    letter-spacing: -0.015em;
+  }
+
+  /* "presença." em itálico do serif — acento editorial da assinatura */
+  [id*="hero_rota"] h1 em {
+    font-style: italic;
   }
 
   [id*="hero_rota"] p {
@@ -35,5 +41,20 @@
   [id*="hero_rota"] h1,
   [id*="hero_rota"] p {
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ----------------------------------------------------------------------
+     SOBRETÍTULOS (eyebrows) — o tema ignora "case" e "letter_spacing" em
+     blocos de texto com preset "paragraph" (só aplica no preset "custom").
+     Aqui os eyebrows da home ganham o mesmo tratamento de etiqueta da
+     seção rota-modelos: caixa alta, tracking largo, peso forte, oliva.
+     ---------------------------------------------------------------------- */
+  [class*="text_destaques_eyebrow"] p,
+  .rota-narrativa [class*="__eyebrow"] p {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-primary, #2c3a22);
   }
 </style>

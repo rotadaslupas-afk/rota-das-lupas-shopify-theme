@@ -49,7 +49,7 @@
             "text_headline": {
               "type": "text",
               "settings": {
-                "text": "<h1>Óculos Juliet, Double-X e Penny com presença.</h1>",
+                "text": "<h1>Óculos com <em>presença.</em></h1>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -469,6 +469,7 @@
                 "text": "<p>Primeira parada</p>",
                 "type_preset": "paragraph",
                 "case": "uppercase",
+                "letter_spacing": "loose",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left"
@@ -485,11 +486,25 @@
                 "alignment": "left"
               },
               "blocks": {}
+            },
+            "link_ver_todas": {
+              "type": "_product-list-button",
+              "settings": {
+                "label": "Ver todas as lupas",
+                "open_in_new_tab": false,
+                "style_class": "button-unstyled",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "text_destaques_eyebrow",
-            "text_destaques_titulo"
+            "text_destaques_titulo",
+            "link_ver_todas"
           ]
         },
         "static-product-card": {
@@ -565,18 +580,18 @@
                   "type": "_product-card-group",
                   "name": "t:names.group",
                   "settings": {
-                    "content_direction": "row",
+                    "content_direction": "column",
                     "vertical_on_mobile": true,
-                    "horizontal_alignment": "space-between",
+                    "horizontal_alignment": "flex-start",
                     "vertical_alignment": "center",
                     "align_baseline": false,
                     "horizontal_alignment_flex_direction_column": "flex-start",
                     "vertical_alignment_flex_direction_column": "flex-start",
-                    "gap": 8,
+                    "gap": 2,
                     "width": "fill",
-                    "custom_width": 75,
-                    "width_mobile": "custom",
-                    "custom_width_mobile": 75,
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
                     "height": "fit",
                     "custom_height": 100,
                     "background_media": "none",
@@ -630,7 +645,7 @@
                         "show_tax_info": false,
                         "type_preset": "paragraph",
                         "width": "fit-content",
-                        "alignment": "right",
+                        "alignment": "left",
                         "font": "var(--font-body--family)",
                         "font_size": "1rem",
                         "line_height": "normal",
@@ -664,14 +679,14 @@
       "name": "Primeira parada",
       "settings": {
         "collection": "oculos",
-        "layout_type": "carousel",
-        "carousel_on_mobile": true,
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
         "max_products": 6,
         "columns": 3,
-        "mobile_columns": "1",
+        "mobile_columns": "2",
         "mobile_card_size": "75cqw",
         "columns_gap": 8,
-        "rows_gap": 8,
+        "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "full-width",
@@ -691,6 +706,7 @@
             "text": "<p>A Rota</p>",
             "type_preset": "paragraph",
             "case": "uppercase",
+            "letter_spacing": "loose",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center"
