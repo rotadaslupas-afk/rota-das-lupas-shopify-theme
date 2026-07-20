@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "a_rota": {
+      "type": "rota-a-rota",
+      "settings": {
+        "hero_eyebrow": "A Rota",
+        "hero_lead": "Um camelo largou a caravana. Foi atrás de uma rota que fosse <em>só dele.</em>",
+        "legend": "<p>Dizem que, numa caravana antiga, havia um camelo que carregava um beduíno e tudo o que era dele.</p><p>Um dia, no meio do deserto, o camelo parou. Deixou a carga, deixou o dono, deixou o caminho de sempre. E foi embora sozinho, atrás de uma rota que fosse só dele.</p><p>Ninguém sabe onde essa rota termina. A gente só sabe onde ela começa: <strong>aqui.</strong></p>",
+        "bridge_quote": "A gente é a rota. Nunca a caravana.",
+        "bridge_sub": "Óculos não são só proteção pro sol. São o jeito de chegar.",
+        "padrao_eyebrow": "O padrão da Rota",
+        "padrao_heading": "Só entra na Rota o que merece",
+        "padrao_body": "<p>Rota das Lupas é uma marca de óculos premium pra quem gosta de ser visto de longe e não se importa de destoar do resto.</p><p>Antes de entrar na loja, cada modelo passa pela nossa avaliação. A gente confere lente, encaixe e acabamento peça por peça, e só libera o que tem qualidade impecável. São vários estilos e vários tipos de lente, do espelhado ao mais discreto, cada um com a mesma exigência.</p><p>A Rota não para. Sempre tem parada nova chegando, modelo novo pra estrear. E se o seu não chegar do jeito que você esperava, a gente garante a troca. É seu direito, e a gente faz questão de honrar.</p>",
+        "cta_eyebrow": "Primeira parada",
+        "cta_heading": "Entre para a Rota.",
+        "cta_text": "A coleção já está no ar. Falta você.",
+        "cta_label": "Ver coleção",
+        "cta_link": "shopify://collections/oculos",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "a_rota"
+  ]
+}

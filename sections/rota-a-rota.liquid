@@ -1,0 +1,412 @@
+{% comment %}
+  A Rota — página institucional (Quem Somos).
+  Conta a lenda completa do camelo e o padrão da marca. Voz da marca:
+  _marca/identidade/voz-da-marca.md. Usa rota-reveal.js para os fades ao rolar.
+{% endcomment %}
+<script
+  src="{{ 'rota-reveal.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<rota-reveal
+  class="
+    rota-arota
+    section
+    spacing-style
+    section--full-width
+    {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
+  "
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  {%- comment -%} Abertura — banda oliva com a frase-âncora {%- endcomment -%}
+  <header class="rota-arota__hero" data-reveal>
+    <div class="rota-arota__wrap rota-arota__wrap--narrow">
+      {% if section.settings.hero_eyebrow != blank %}
+        <span class="rota-arota__eyebrow">{{ section.settings.hero_eyebrow }}</span>
+      {% endif %}
+      <h1 class="rota-arota__lead">{{ section.settings.hero_lead }}</h1>
+    </div>
+  </header>
+
+  {%- comment -%} Corpo da lenda {%- endcomment -%}
+  <div class="rota-arota__prose rota-arota__legend" data-reveal>
+    {{ section.settings.legend }}
+  </div>
+
+  {%- comment -%} Ponte: da lenda pra marca {%- endcomment -%}
+  <figure class="rota-arota__bridge" data-reveal>
+    <blockquote class="rota-arota__quote">{{ section.settings.bridge_quote }}</blockquote>
+    {% if section.settings.bridge_sub != blank %}
+      <figcaption class="rota-arota__quote-sub">{{ section.settings.bridge_sub }}</figcaption>
+    {% endif %}
+  </figure>
+
+  {%- comment -%} O padrão da Rota {%- endcomment -%}
+  <div class="rota-arota__prose" data-reveal>
+    {% if section.settings.padrao_eyebrow != blank %}
+      <span class="rota-arota__eyebrow rota-arota__eyebrow--ink">{{ section.settings.padrao_eyebrow }}</span>
+    {% endif %}
+    <h2 class="rota-arota__h2">{{ section.settings.padrao_heading }}</h2>
+    <div class="rota-arota__prose-body">{{ section.settings.padrao_body }}</div>
+  </div>
+
+  {%- comment -%} Chamada final — banda oliva {%- endcomment -%}
+  <div class="rota-arota__cta" data-reveal>
+    <div class="rota-arota__wrap rota-arota__wrap--narrow">
+      {% if section.settings.cta_eyebrow != blank %}
+        <span class="rota-arota__eyebrow">{{ section.settings.cta_eyebrow }}</span>
+      {% endif %}
+      <h2 class="rota-arota__cta-title">{{ section.settings.cta_heading }}</h2>
+      {% if section.settings.cta_text != blank %}
+        <p class="rota-arota__cta-text">{{ section.settings.cta_text }}</p>
+      {% endif %}
+      {% if section.settings.cta_label != blank %}
+        <a class="button rota-arota__cta-btn" href="{{ section.settings.cta_link | default: '#' }}">
+          {{ section.settings.cta_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</rota-reveal>
+
+{% stylesheet %}
+  .rota-arota {
+    --rota-olive: var(--color-primary, #2c3a22);
+    --rota-gold: #b6893c;
+    --rota-cream: var(--color-background, #f7f2e7);
+    --rota-max: 680px;
+    padding-inline: 0;
+    overflow: clip;
+  }
+
+  .rota-arota__wrap {
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: var(--gutter, 1.5rem);
+  }
+
+  .rota-arota__wrap--narrow {
+    max-width: var(--rota-max);
+  }
+
+  /* Banda de abertura — oliva com texto creme */
+  .rota-arota__hero {
+    background: var(--rota-olive);
+    color: var(--rota-cream);
+    text-align: center;
+    padding-block: clamp(4rem, 12vw, 8.5rem);
+  }
+
+  .rota-arota__lead {
+    font-family: var(--font-primary--family, serif);
+    font-weight: 500;
+    font-size: clamp(2rem, 5.6vw, 3.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .rota-arota__lead em {
+    font-style: italic;
+    color: var(--rota-gold);
+  }
+
+  /* Colunas de texto */
+  .rota-arota__prose {
+    width: 100%;
+    max-width: var(--rota-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter, 1.5rem);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .rota-arota__legend {
+    padding-block: clamp(3rem, 8vw, 5rem) clamp(1rem, 3vw, 2rem);
+  }
+
+  .rota-arota__prose :where(p) {
+    font-family: var(--font-body--family, sans-serif);
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.7;
+    margin: 0 0 1.15em;
+  }
+
+  .rota-arota__prose :where(p):last-child {
+    margin-bottom: 0;
+  }
+
+  /* Destaque do "aqui." no fim da lenda */
+  .rota-arota__legend strong {
+    color: var(--rota-gold);
+    font-weight: 600;
+  }
+
+  /* Citação-ponte */
+  .rota-arota__bridge {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 3.5rem) var(--gutter, 1.5rem);
+    text-align: center;
+  }
+
+  .rota-arota__bridge::before {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 2px;
+    background: var(--rota-gold);
+    margin: 0 auto clamp(1.5rem, 4vw, 2.25rem);
+  }
+
+  .rota-arota__quote {
+    font-family: var(--font-primary--family, serif);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .rota-arota__quote-sub {
+    font-family: var(--font-body--family, sans-serif);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-top: 1.1rem;
+  }
+
+  /* Padrão da Rota */
+  .rota-arota__eyebrow {
+    display: block;
+    font-family: var(--font-body--family, sans-serif);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rota-gold);
+    margin-bottom: 0.9rem;
+  }
+
+  /* Sobre fundo creme, o dourado não tem contraste suficiente (2.8:1).
+     Usa tinta — legível (15:1) e igual aos sobretítulos da home. */
+  .rota-arota__eyebrow--ink {
+    color: var(--color-foreground, #1a1a17);
+  }
+
+  .rota-arota__h2 {
+    font-family: var(--font-primary--family, serif);
+    font-weight: 500;
+    font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 clamp(1.25rem, 3vw, 1.75rem);
+    text-wrap: balance;
+  }
+
+  /* Chamada final — banda oliva */
+  .rota-arota__cta {
+    background: var(--rota-olive);
+    color: var(--rota-cream);
+    text-align: center;
+    padding-block: clamp(3.5rem, 9vw, 6rem);
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .rota-arota__cta-title {
+    font-family: var(--font-primary--family, serif);
+    font-weight: 500;
+    font-size: clamp(1.9rem, 4.6vw, 3.1rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.7rem;
+    text-wrap: balance;
+  }
+
+  .rota-arota__cta-text {
+    font-family: var(--font-body--family, sans-serif);
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0 auto clamp(1.75rem, 4vw, 2.25rem);
+    max-width: 34ch;
+  }
+
+  /* Reveal ao rolar — gated pelo rota-reveal--ready + reduced-motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .rota-reveal--ready [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .rota-reveal--ready [data-reveal].is-revealed {
+      opacity: 1;
+      transform: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "A Rota — página",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Abertura"
+    },
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Sobretítulo",
+      "default": "A Rota"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "hero_lead",
+      "label": "Frase de abertura",
+      "default": "Um camelo largou a caravana. Foi atrás de uma rota que fosse <em>só dele.</em>"
+    },
+    {
+      "type": "header",
+      "content": "A lenda"
+    },
+    {
+      "type": "richtext",
+      "id": "legend",
+      "label": "Corpo da lenda",
+      "default": "<p>Dizem que, numa caravana antiga, havia um camelo que carregava um beduíno e tudo o que era dele.</p><p>Um dia, no meio do deserto, o camelo parou. Deixou a carga, deixou o dono, deixou o caminho de sempre. E foi embora sozinho, atrás de uma rota que fosse só dele.</p><p>Ninguém sabe onde essa rota termina. A gente só sabe onde ela começa: <strong>aqui.</strong></p>"
+    },
+    {
+      "type": "header",
+      "content": "Ponte"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bridge_quote",
+      "label": "Citação",
+      "default": "A gente é a rota. Nunca a caravana."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bridge_sub",
+      "label": "Apoio da citação",
+      "default": "Óculos não são só proteção pro sol. São o jeito de chegar."
+    },
+    {
+      "type": "header",
+      "content": "O padrão da Rota"
+    },
+    {
+      "type": "text",
+      "id": "padrao_eyebrow",
+      "label": "Sobretítulo",
+      "default": "O padrão da Rota"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "padrao_heading",
+      "label": "Título",
+      "default": "Só entra na Rota o que merece"
+    },
+    {
+      "type": "richtext",
+      "id": "padrao_body",
+      "label": "Texto",
+      "default": "<p>Rota das Lupas é uma marca de óculos premium pra quem gosta de ser visto de longe e não se importa de destoar do resto.</p><p>Antes de entrar na loja, cada modelo passa pela nossa avaliação. A gente confere lente, encaixe e acabamento peça por peça, e só libera o que tem qualidade impecável. São vários estilos e vários tipos de lente, do espelhado ao mais discreto, cada um com a mesma exigência.</p><p>A Rota não para. Sempre tem parada nova chegando, modelo novo pra estrear. E se o seu não chegar do jeito que você esperava, a gente garante a troca. É seu direito, e a gente faz questão de honrar.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Chamada final"
+    },
+    {
+      "type": "text",
+      "id": "cta_eyebrow",
+      "label": "Sobretítulo",
+      "default": "Primeira parada"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "cta_heading",
+      "label": "Título",
+      "default": "Entre para a Rota."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto",
+      "default": "A coleção já está no ar. Falta você."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Botão",
+      "default": "Ver coleção"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link do botão"
+    },
+    {
+      "type": "header",
+      "content": "t:content.section_layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Cor de fundo",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "A Rota — página",
+      "category": "t:categories.storytelling"
+    }
+  ]
+}
+{% endschema %}
