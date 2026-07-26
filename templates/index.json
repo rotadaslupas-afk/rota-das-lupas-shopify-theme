@@ -697,6 +697,21 @@
         "padding-block-end": 48
       }
     },
+    "faixa": {
+      "type": "rota-faixa",
+      "blocks": {
+        "f1": { "type": "frase", "settings": { "text": "Bem-vindo à Rota" } },
+        "f2": { "type": "frase", "settings": { "text": "Frete para todo o Brasil" } },
+        "f3": { "type": "frase", "settings": { "text": "Oferta de estreia — primeira parada: 24K" } },
+        "f4": { "type": "frase", "settings": { "text": "Troca fácil em 7 dias" } },
+        "f5": { "type": "frase", "settings": { "text": "Óculos com presença" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "settings": {
+        "speed": 35,
+        "font_size": 0.8
+      }
+    },
     "rota_narrativa": {
       "type": "rota-narrativa",
       "blocks": {
@@ -876,6 +891,7 @@
   },
   "order": [
     "hero_rota",
+    "faixa",
     "destaques",
     "beneficios",
     "rota_modelos",

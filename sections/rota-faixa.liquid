@@ -1,0 +1,192 @@
+{% comment %}
+  Faixa rotativa (marquee) da Rota — frases curtas da marca rolando na
+  horizontal. Verde (oliva) de fundo, dourado nos losangos separadores.
+  Rolagem contínua em CSS, pausa no hover e respeita prefers-reduced-motion.
+  Voz da marca: _marca/identidade/voz-da-marca.md
+{% endcomment %}
+{% liquid
+  assign bg = section.settings.background_color | default: settings.color_palette.color1
+  assign fg = section.settings.text_color | default: settings.color_palette.background
+  assign accent = section.settings.accent_color | default: settings.color_palette.color2
+%}
+
+{%- capture items -%}
+  {%- for block in section.blocks -%}
+    <span class="rota-faixa__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+    <span class="rota-faixa__sep" aria-hidden="true">&#9670;</span>
+  {%- endfor -%}
+{%- endcapture -%}
+
+<div
+  class="rota-faixa"
+  style="
+    --faixa-bg: {{ bg }};
+    --faixa-fg: {{ fg }};
+    --faixa-accent: {{ accent }};
+    --faixa-duration: {{ section.settings.speed }}s;
+    --faixa-size: {{ section.settings.font_size }}rem;
+  "
+>
+  <div class="rota-faixa__viewport">
+    <div class="rota-faixa__track">
+      {% comment %} 4 cópias para uma rolagem contínua sem falhas em qualquer largura {% endcomment %}
+      <div class="rota-faixa__group">{{ items }}</div>
+      <div class="rota-faixa__group" aria-hidden="true">{{ items }}</div>
+      <div class="rota-faixa__group" aria-hidden="true">{{ items }}</div>
+      <div class="rota-faixa__group" aria-hidden="true">{{ items }}</div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .rota-faixa {
+    background: var(--faixa-bg, #2c3a22);
+    color: var(--faixa-fg, #f7f2e7);
+    overflow: hidden;
+    border-block: 1px solid color-mix(in srgb, var(--faixa-accent, #b6893c) 45%, transparent);
+  }
+
+  .rota-faixa__viewport {
+    display: flex;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .rota-faixa__track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    animation: rota-faixa-scroll var(--faixa-duration, 30s) linear infinite;
+  }
+
+  .rota-faixa__group {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding-block: clamp(0.6rem, 1.4vw, 0.85rem);
+  }
+
+  .rota-faixa__item {
+    display: inline-block;
+    padding-inline: clamp(1.8rem, 4vw, 3rem);
+    font-family: var(--font-body--family, sans-serif);
+    font-size: var(--faixa-size, 0.82rem);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .rota-faixa__sep {
+    flex: 0 0 auto;
+    font-size: calc(var(--faixa-size, 0.82rem) * 0.72);
+    line-height: 1;
+    color: var(--faixa-accent, #b6893c);
+  }
+
+  @keyframes rota-faixa-scroll {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @media (hover: hover) {
+    .rota-faixa:hover .rota-faixa__track {
+      animation-play-state: paused;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rota-faixa__track { animation: none; }
+    .rota-faixa__viewport {
+      justify-content: center;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+    /* mostra só a primeira leva, centralizada, sem rolagem */
+    .rota-faixa__group:not(:first-child) { display: none; }
+    .rota-faixa__track { width: 100%; }
+    .rota-faixa__group:first-child { flex-wrap: wrap; justify-content: center; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Faixa rotativa",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Velocidade (menor = mais rápido)",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "s",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Tamanho do texto",
+      "min": 0.7,
+      "max": 1.2,
+      "step": 0.1,
+      "unit": "rem",
+      "default": 0.8
+    },
+    {
+      "type": "header",
+      "content": "Cores"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fundo",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texto",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Losango (destaque)",
+      "placeholder": "t:settings.default"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "frase",
+      "name": "Frase",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texto",
+          "default": "Frase da marca"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faixa rotativa",
+      "blocks": [
+        { "type": "frase", "settings": { "text": "Bem-vindo à Rota" } },
+        { "type": "frase", "settings": { "text": "Frete para todo o Brasil" } },
+        { "type": "frase", "settings": { "text": "Oferta de estreia — primeira parada: 24K" } },
+        { "type": "frase", "settings": { "text": "Troca fácil em 7 dias" } },
+        { "type": "frase", "settings": { "text": "Óculos com presença" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
