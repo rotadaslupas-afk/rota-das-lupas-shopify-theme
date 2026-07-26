@@ -95,26 +95,10 @@
               "blocks": {}
             },
             "text_preco_estreia": {
-              "type": "text",
+              "type": "custom-liquid",
+              "name": "Oferta de estreia",
               "settings": {
-                "text": "<p><em>Oferta de estreia</em><br>De R$ 189,00 por <strong>R$ 149,90</strong></p>",
-                "width": "100%",
-                "max_width": "narrow",
-                "alignment": "left",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "{{ settings.color_palette.color2 }}",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "<p style=\"margin:0;font-family:var(--font-body--family);color:#b6893c;line-height:1.4;\"><em style=\"text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-style:normal;\">Oferta de estreia</em><br><span style=\"opacity:.7;text-decoration:line-through;\">De R$ 189,00</span> por <strong style=\"font-size:1.15em;\">R$ 149,90</strong></p>"
               },
               "blocks": {}
             },
@@ -701,9 +685,9 @@
       "type": "rota-faixa",
       "blocks": {
         "f1": { "type": "frase", "settings": { "text": "Bem-vindo à Rota" } },
-        "f2": { "type": "frase", "settings": { "text": "Frete para todo o Brasil" } },
+        "f2": { "type": "frase", "settings": { "text": "Ninguém escolhe sua rota por você" } },
         "f3": { "type": "frase", "settings": { "text": "Oferta de estreia — primeira parada: 24K" } },
-        "f4": { "type": "frase", "settings": { "text": "Troca fácil em 7 dias" } },
+        "f4": { "type": "frase", "settings": { "text": "Lente espelhada, dourado 24K" } },
         "f5": { "type": "frase", "settings": { "text": "Óculos com presença" } }
       },
       "block_order": ["f1", "f2", "f3", "f4", "f5"],
