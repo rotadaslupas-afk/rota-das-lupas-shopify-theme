@@ -754,7 +754,7 @@
           "type": "button",
           "settings": {
             "label": "Conheça a Rota",
-            "link": "shopify://collections/all",
+            "link": "shopify://pages/a-rota",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
             "width": "fit-content",
