@@ -97,7 +97,7 @@
             "text_preco_estreia": {
               "type": "text",
               "settings": {
-                "text": "<p>De R$ 189,00 por <strong>R$ 149,90</strong> · oferta de estreia</p>",
+                "text": "<p><em>Oferta de estreia</em><br>De R$ 189,00 por <strong>R$ 149,90</strong></p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -876,8 +876,8 @@
   },
   "order": [
     "hero_rota",
-    "beneficios",
     "destaques",
+    "beneficios",
     "rota_modelos",
     "rota_narrativa",
     "newsletter"

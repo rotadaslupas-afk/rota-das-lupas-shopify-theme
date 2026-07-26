@@ -45,6 +45,61 @@
   }
 
   /* ----------------------------------------------------------------------
+     PROMO DO HERO — etiqueta discreta + preço em dourado champanhe.
+     Mesma fonte do resto do hero (Inter): destaque pela cor e pelo peso,
+     não pelo tamanho. Sóbrio e casado com a página.
+     ---------------------------------------------------------------------- */
+  [id*="hero_rota"] [class*="text_preco_estreia"] p {
+    font-size: clamp(0.95rem, 1.9vw, 1.1rem) !important;
+    line-height: 1.45 !important;
+    color: rgba(247, 242, 231, 0.88) !important;
+  }
+  [id*="hero_rota"] [class*="text_preco_estreia"] em {
+    display: inline-block;
+    margin-bottom: 0.15rem;
+    font-style: normal;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e0c281;
+  }
+  [id*="hero_rota"] [class*="text_preco_estreia"] strong {
+    font-weight: 700;
+    font-size: 1.15em;
+    color: #e7cf96;
+    white-space: nowrap;
+  }
+
+  /* ----------------------------------------------------------------------
+     CTA PRINCIPAL DO HERO ("Comprar agora") — dourado com vida.
+     Só o botão primário (.button); o "Ver coleção" é .button-unstyled.
+     ---------------------------------------------------------------------- */
+  [id*="hero_rota"] .button {
+    background: linear-gradient(180deg, #c9a557 0%, #b6893c 100%) !important;
+    color: #1a1a17 !important;
+    border: none !important;
+    font-weight: 600;
+    box-shadow:
+      0 8px 24px rgba(182, 137, 60, 0.38),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  }
+  @media (hover: hover) {
+    [id*="hero_rota"] .button:hover {
+      filter: brightness(1.07);
+      transform: translateY(-2px);
+      box-shadow:
+        0 12px 32px rgba(182, 137, 60, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32);
+    }
+  }
+  [id*="hero_rota"] .button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 14px rgba(182, 137, 60, 0.42);
+  }
+
+  /* ----------------------------------------------------------------------
      SOBRETÍTULOS (eyebrows) — o tema ignora "case" e "letter_spacing" em
      blocos de texto com preset "paragraph" (só aplica no preset "custom").
      Aqui os eyebrows da home ganham o mesmo tratamento de etiqueta da
