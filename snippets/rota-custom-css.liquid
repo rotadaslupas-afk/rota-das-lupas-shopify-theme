@@ -31,16 +31,17 @@
   [id*="hero_rota"] .overlay--gradient {
     background: linear-gradient(
       to top,
-      rgba(18, 24, 14, 0.82) 0%,
-      rgba(18, 24, 14, 0.45) 28%,
-      rgba(18, 24, 14, 0.08) 52%,
-      transparent 68%
+      rgba(18, 24, 14, 0.94) 0%,
+      rgba(18, 24, 14, 0.80) 24%,
+      rgba(18, 24, 14, 0.52) 46%,
+      rgba(18, 24, 14, 0.22) 68%,
+      transparent 90%
     ) !important;
   }
 
   [id*="hero_rota"] h1,
   [id*="hero_rota"] p {
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.55);
   }
 
   /* ----------------------------------------------------------------------
@@ -56,5 +57,91 @@
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--color-primary, #2c3a22);
+  }
+
+  /* ----------------------------------------------------------------------
+     PÁGINA DE PRODUTO — faixa de confiança sob o botão de compra e
+     acordeão de informações (envio, trocas, cuidados). Blocos custom-liquid
+     no product.json apenas emitem a marcação; o estilo mora aqui.
+     ---------------------------------------------------------------------- */
+  .rota-pdp-trust {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid color-mix(in srgb, var(--color-foreground, #1a1a17) 14%, transparent);
+    display: grid;
+    gap: 0.7rem;
+    font-family: var(--font-body--family, sans-serif);
+  }
+  .rota-pdp-trust li {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    color: color-mix(in srgb, var(--color-foreground, #1a1a17) 85%, transparent);
+  }
+  .rota-pdp-trust svg {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary, #2c3a22);
+  }
+  .rota-pdp-trust strong { font-weight: 600; }
+
+  .rota-pdp-info {
+    margin-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-foreground, #1a1a17) 14%, transparent);
+    font-family: var(--font-body--family, sans-serif);
+  }
+  .rota-pdp-info details {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-foreground, #1a1a17) 14%, transparent);
+  }
+  .rota-pdp-info summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    list-style: none;
+    padding: 0.95rem 0;
+    font-size: 0.98rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .rota-pdp-info summary::-webkit-details-marker { display: none; }
+  .rota-pdp-info summary:hover,
+  .rota-pdp-info details[open] summary { color: var(--color-primary, #2c3a22); }
+  .rota-pdp-info summary i {
+    position: relative;
+    flex: 0 0 auto;
+    width: 15px; height: 15px;
+    color: var(--color-primary, #2c3a22);
+  }
+  .rota-pdp-info summary i::before,
+  .rota-pdp-info summary i::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 auto 0;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .rota-pdp-info summary i::after { transform: translateY(-50%) rotate(90deg); }
+  .rota-pdp-info details[open] summary i::after { transform: translateY(-50%); opacity: 0; }
+  .rota-pdp-info__body {
+    padding: 0 0 1rem;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: color-mix(in srgb, var(--color-foreground, #1a1a17) 78%, transparent);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .rota-pdp-info details[open] .rota-pdp-info__body {
+      animation: rota-pdp-open 0.32s ease;
+    }
+    @keyframes rota-pdp-open {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: none; }
+    }
   }
 </style>

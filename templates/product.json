@@ -269,6 +269,22 @@
                 }
               },
               "block_order": []
+            },
+            "trust_rota": {
+              "type": "custom-liquid",
+              "name": "Selos de confiança",
+              "settings": {
+                "custom_liquid": "<ul class=\"rota-pdp-trust\"><li><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 7h11v8H3z\"/><path d=\"M14 10h4l3 3v2h-7z\"/><circle cx=\"7\" cy=\"17.5\" r=\"1.6\"/><circle cx=\"17.5\" cy=\"17.5\" r=\"1.6\"/></svg> Frete para todo o Brasil, com rastreio</li><li><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 8a9 9 0 0 1 15-3l3 3\"/><path d=\"M21 5v4h-4\"/><path d=\"M21 16a9 9 0 0 1-15 3l-3-3\"/><path d=\"M3 19v-4h4\"/></svg> Troca fácil em até 7 dias</li><li><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"10\" width=\"16\" height=\"10\" rx=\"2\"/><path d=\"M8 10V7a4 4 0 0 1 8 0v3\"/></svg> Pagamento seguro — Pix ou cartão</li></ul>"
+              },
+              "blocks": {}
+            },
+            "info_rota": {
+              "type": "custom-liquid",
+              "name": "Informações (acordeão)",
+              "settings": {
+                "custom_liquid": "<div class=\"rota-pdp-info\"><details><summary>Envio e prazo<i></i></summary><div class=\"rota-pdp-info__body\">Enviamos para todo o Brasil, com rastreio. O prazo e o frete aparecem no checkout, antes de fechar o pedido. Assim que a lupa é postada, o código de rastreio chega no seu e-mail.</div></details><details><summary>Trocas e garantia<i></i></summary><div class=\"rota-pdp-info__body\">Você tem 7 dias corridos pra trocar ou devolver. Se chegar com defeito, a gente troca. É seu direito, e a gente faz questão de honrar.</div></details><details><summary>Como cuidar da sua lupa<i></i></summary><div class=\"rota-pdp-info__body\">Guarde no estojo. Limpe com flanela macia. Evite o calor do porta-luvas. Lupa bem cuidada acompanha a estrada toda.</div></details></div>"
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -279,7 +295,9 @@
             "text_gXMUag",
             "variant_picker_R3rGDr",
             "sku_rota",
-            "buy_buttons_eYQEYi"
+            "buy_buttons_eYQEYi",
+            "trust_rota",
+            "info_rota"
           ]
         }
       },
@@ -556,9 +574,9 @@
         "carousel_on_mobile": false,
         "max_products": 6,
         "columns": 3,
-        "mobile_columns": "1",
-        "columns_gap": 1,
-        "rows_gap": 2,
+        "mobile_columns": "2",
+        "columns_gap": 8,
+        "rows_gap": 24,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "full-width",
