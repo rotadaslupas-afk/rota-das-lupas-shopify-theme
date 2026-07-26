@@ -19,10 +19,24 @@
 >
 
 {%- liquid
-  assign og_title = page_title | default: shop.name
-  assign og_url = canonical_url | default: request.origin
+  assign seo_title = page_title | default: shop.name
+  assign seo_description = page_description | default: shop.description | default: shop.name
+  assign seo_canonical_url = canonical_url | default: request.origin
+
+  if request.page_type == 'index'
+    assign seo_title = 'Óculos Juliet, Double-X e Penny | Rota das Lupas'
+    assign seo_description = 'Escolha seu óculos entre modelos Juliet, Double-X e Penny, com diferentes armações e cores de lente. Encontre a combinação que combina com sua rota.'
+  elsif request.page_type == 'product' and product.metafields.custom.seo_canonical_handle.value != blank
+    assign canonical_product_path = '/products/' | append: product.metafields.custom.seo_canonical_handle.value
+    assign seo_canonical_url = request.origin | append: canonical_product_path
+  endif
+
+  assign og_title = seo_title
+  assign og_url = seo_canonical_url
   assign og_type = 'website'
-  assign og_description = page_description | default: shop.description | default: shop.name
+  assign og_description = seo_description
+  assign seo_title_normalized = seo_title | downcase
+  assign shop_name_normalized = shop.name | downcase
 
   if request.page_type == 'product'
     assign og_type = 'product'
@@ -104,20 +118,20 @@
 >
 
 <title>
-  {{ page_title }}
+  {{ seo_title }}
   {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
   {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-  {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {%- unless seo_title_normalized contains shop_name_normalized %} &ndash; {{ shop.name }}{% endunless -%}
 </title>
 
 <link
   rel="canonical"
-  href="{{ canonical_url }}"
+  href="{{ seo_canonical_url }}"
 >
 
-{% if page_description %}
+{% if seo_description != blank %}
   <meta
     name="description"
-    content="{{ page_description | escape }}"
+    content="{{ seo_description | escape }}"
   >
 {% endif %}
