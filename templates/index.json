@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "hero_rota": {
       "type": "hero",
@@ -21,25 +22,29 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-end",
-            "gap": 16,
+            "gap": 8,
             "width": "custom",
-            "custom_width": 46,
+            "custom_width": 42,
             "width_mobile": "custom",
             "custom_width_mobile": 90,
             "height": "fit",
             "custom_height": 100,
             "background_media": "none",
+            "background_color": "",
             "video_position": "cover",
             "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
             "toggle_overlay": false,
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
             "open_in_new_tab": false,
+            "placeholder": "",
             "padding-block-start": 0,
             "padding-block-end": 48,
             "padding-inline-start": 24,
@@ -49,12 +54,13 @@
             "text_headline": {
               "type": "text",
               "settings": {
-                "text": "<h1>Óculos com <em>presença.</em></h1>",
+                "text": "<h2>Óculos com <em>presença.</em></h2>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "h1",
                 "font": "var(--font-primary--family)",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -79,6 +85,7 @@
                 "alignment": "left",
                 "type_preset": "paragraph",
                 "font": "var(--font-body--family)",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -120,17 +127,21 @@
                 "height": "fit",
                 "custom_height": 100,
                 "background_media": "none",
+                "background_color": "",
                 "video_position": "cover",
                 "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
                 "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 8,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -144,6 +155,10 @@
                     "link": "shopify://products/oculos-juliet-24k-corvette-24k",
                     "open_in_new_tab": false,
                     "style_class": "button",
+                    "custom_button_background": "{{ settings.color_palette.foreground }}",
+                    "custom_button_text": "{{ settings.color_palette.background }}",
+                    "custom_button_border": "{{ settings.color_palette.background }}",
+                    "link_text_color": "",
                     "width": "fit-content",
                     "custom_width": 100,
                     "width_mobile": "fit-content",
@@ -158,6 +173,9 @@
                     "link": "shopify://collections/oculos",
                     "open_in_new_tab": false,
                     "style_class": "button-unstyled",
+                    "custom_button_background": "{{ settings.color_palette.foreground }}",
+                    "custom_button_text": "{{ settings.color_palette.background }}",
+                    "custom_button_border": "{{ settings.color_palette.background }}",
                     "link_text_color": "{{ settings.color_palette.background }}",
                     "width": "fit-content",
                     "custom_width": 100,
@@ -188,6 +206,11 @@
         "media_type_1": "video",
         "video_1": "shopify://files/videos/rota-hero-v3.mp4",
         "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -211,206 +234,53 @@
         "padding-block-end": 0
       }
     },
-    "beneficios": {
-      "type": "section",
+    "faixa": {
+      "type": "rota-faixa",
       "blocks": {
-        "beneficio_frete": {
-          "type": "group",
-          "name": "Frete",
+        "f1": {
+          "type": "frase",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "height": "fit"
-          },
-          "blocks": {
-            "icon_frete": {
-              "type": "icon",
-              "settings": {
-                "icon": "truck",
-                "width": 28,
-                "link": ""
-              },
-              "blocks": {}
-            },
-            "text_frete": {
-              "type": "text",
-              "settings": {
-                "text": "<h3>Frete para todo o Brasil</h3><p>Envio rastreado, do nosso caminho pro seu.</p>",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "icon_frete",
-            "text_frete"
-          ]
+            "text": "Bem-vindo à Rota"
+          }
         },
-        "beneficio_pagamento": {
-          "type": "group",
-          "name": "Pagamento",
+        "f2": {
+          "type": "frase",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "height": "fit"
-          },
-          "blocks": {
-            "icon_pagamento": {
-              "type": "icon",
-              "settings": {
-                "icon": "lock",
-                "width": 28,
-                "link": ""
-              },
-              "blocks": {}
-            },
-            "text_pagamento": {
-              "type": "text",
-              "settings": {
-                "text": "<h3>Pagamento seguro</h3><p>Pix, cartão e parcelamento. Sem surpresa.</p>",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "icon_pagamento",
-            "text_pagamento"
-          ]
+            "text": "Ninguém escolhe sua rota por você"
+          }
         },
-        "beneficio_troca": {
-          "type": "group",
-          "name": "Troca",
+        "f3": {
+          "type": "frase",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "height": "fit"
-          },
-          "blocks": {
-            "icon_troca": {
-              "type": "icon",
-              "settings": {
-                "icon": "return",
-                "width": 28,
-                "link": ""
-              },
-              "blocks": {}
-            },
-            "text_troca": {
-              "type": "text",
-              "settings": {
-                "text": "<h3>Troca fácil</h3><p>Se não for a sua rota, a gente resolve.</p>",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "icon_troca",
-            "text_troca"
-          ]
+            "text": "Oferta de estreia — primeira parada: 24K"
+          }
         },
-        "beneficio_suporte": {
-          "type": "group",
-          "name": "Suporte",
+        "f4": {
+          "type": "frase",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "height": "fit"
-          },
-          "blocks": {
-            "icon_suporte": {
-              "type": "icon",
-              "settings": {
-                "icon": "chat_bubble",
-                "width": 28,
-                "link": ""
-              },
-              "blocks": {}
-            },
-            "text_suporte": {
-              "type": "text",
-              "settings": {
-                "text": "<h3>Suporte de gente</h3><p>Fale com a gente. Resposta rápida, sem robô.</p>",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center"
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "icon_suporte",
-            "text_suporte"
-          ]
+            "text": "Lente espelhada, dourado 24K"
+          }
+        },
+        "f5": {
+          "type": "frase",
+          "settings": {
+            "text": "Óculos com presença"
+          }
         }
       },
       "block_order": [
-        "beneficio_frete",
-        "beneficio_pagamento",
-        "beneficio_troca",
-        "beneficio_suporte"
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
       ],
-      "name": "Benefícios",
       "settings": {
-        "content_direction": "row",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-start",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height_custom": 50,
-        "background_media": "none",
+        "speed": 35,
+        "font_size": 0.8,
         "background_color": "",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "text_color": "",
+        "accent_color": ""
       }
     },
     "destaques": {
@@ -435,11 +305,13 @@
             "height": "fit",
             "custom_height": 100,
             "background_media": "none",
+            "background_color": "",
             "video_position": "cover",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
+            "border_color": "",
             "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 16,
@@ -451,12 +323,24 @@
               "type": "text",
               "settings": {
                 "text": "<p>Primeira parada</p>",
-                "type_preset": "paragraph",
-                "case": "uppercase",
-                "letter_spacing": "loose",
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "left"
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -464,10 +348,24 @@
               "type": "text",
               "settings": {
                 "text": "<h2>As lupas da vez</h2>",
-                "type_preset": "h3",
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "left"
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -477,6 +375,10 @@
                 "label": "Ver todas as lupas",
                 "open_in_new_tab": false,
                 "style_class": "button-unstyled",
+                "custom_button_background": "{{ settings.color_palette.foreground }}",
+                "custom_button_text": "{{ settings.color_palette.background }}",
+                "custom_button_border": "{{ settings.color_palette.background }}",
+                "link_text_color": "",
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
@@ -501,6 +403,7 @@
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
+            "border_color": "",
             "border_radius": 12,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -516,6 +419,7 @@
                 "border": "solid",
                 "border_width": 0,
                 "border_opacity": 0,
+                "border_color": "",
                 "border_radius": 12,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -543,16 +447,19 @@
                 "height": "fit",
                 "custom_height": 100,
                 "background_media": "none",
+                "background_color": "",
                 "video_position": "cover",
                 "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
                 "open_in_new_tab": false,
                 "padding-block-start": 12,
                 "padding-block-end": 12,
@@ -579,16 +486,19 @@
                     "height": "fit",
                     "custom_height": 100,
                     "background_media": "none",
+                    "background_color": "",
                     "video_position": "cover",
                     "background_image_position": "cover",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
                     "toggle_overlay": false,
                     "overlay_color": "#00000026",
                     "overlay_style": "solid",
                     "gradient_direction": "to top",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "link": "",
                     "open_in_new_tab": false,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
@@ -610,6 +520,7 @@
                         "letter_spacing": "normal",
                         "case": "none",
                         "wrap": "pretty",
+                        "text_color": "",
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
@@ -635,6 +546,7 @@
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
+                        "text_color": "",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
@@ -681,19 +593,411 @@
         "padding-block-end": 48
       }
     },
-    "faixa": {
-      "type": "rota-faixa",
+    "beneficios": {
+      "type": "section",
       "blocks": {
-        "f1": { "type": "frase", "settings": { "text": "Bem-vindo à Rota" } },
-        "f2": { "type": "frase", "settings": { "text": "Ninguém escolhe sua rota por você" } },
-        "f3": { "type": "frase", "settings": { "text": "Oferta de estreia — primeira parada: 24K" } },
-        "f4": { "type": "frase", "settings": { "text": "Lente espelhada, dourado 24K" } },
-        "f5": { "type": "frase", "settings": { "text": "Óculos com presença" } }
+        "beneficio_frete": {
+          "type": "group",
+          "name": "Frete",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_frete": {
+              "type": "icon",
+              "settings": {
+                "icon": "truck",
+                "width": 28,
+                "link": "",
+                "open_in_new_tab": false,
+                "icon_color": ""
+              },
+              "blocks": {}
+            },
+            "text_frete": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Frete para todo o Brasil</h3><p>Envio rastreado, do nosso caminho pro seu.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_frete",
+            "text_frete"
+          ]
+        },
+        "beneficio_pagamento": {
+          "type": "group",
+          "name": "Pagamento",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_pagamento": {
+              "type": "icon",
+              "settings": {
+                "icon": "lock",
+                "width": 28,
+                "link": "",
+                "open_in_new_tab": false,
+                "icon_color": ""
+              },
+              "blocks": {}
+            },
+            "text_pagamento": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Pagamento seguro</h3><p>Pix, cartão e parcelamento. Sem surpresa.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_pagamento",
+            "text_pagamento"
+          ]
+        },
+        "beneficio_troca": {
+          "type": "group",
+          "name": "Troca",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_troca": {
+              "type": "icon",
+              "settings": {
+                "icon": "return",
+                "width": 28,
+                "link": "",
+                "open_in_new_tab": false,
+                "icon_color": ""
+              },
+              "blocks": {}
+            },
+            "text_troca": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Troca fácil</h3><p>Se não for a sua rota, a gente resolve.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_troca",
+            "text_troca"
+          ]
+        },
+        "beneficio_suporte": {
+          "type": "group",
+          "name": "Suporte",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_suporte": {
+              "type": "icon",
+              "settings": {
+                "icon": "chat_bubble",
+                "width": 28,
+                "link": "",
+                "open_in_new_tab": false,
+                "icon_color": ""
+              },
+              "blocks": {}
+            },
+            "text_suporte": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>Suporte de gente</h3><p>Fale com a gente. Resposta rápida, sem robô.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_suporte",
+            "text_suporte"
+          ]
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "block_order": [
+        "beneficio_frete",
+        "beneficio_pagamento",
+        "beneficio_troca",
+        "beneficio_suporte"
+      ],
+      "name": "Benefícios",
       "settings": {
-        "speed": 35,
-        "font_size": 0.8
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "rota_modelos": {
+      "type": "rota-modelos",
+      "blocks": {
+        "m_doublex": {
+          "type": "modelo",
+          "settings": {
+            "collection": "double-x",
+            "label": ""
+          }
+        },
+        "m_juliet": {
+          "type": "modelo",
+          "settings": {
+            "collection": "juliet",
+            "label": ""
+          }
+        },
+        "m_penny": {
+          "type": "modelo",
+          "settings": {
+            "collection": "penny",
+            "label": ""
+          }
+        }
+      },
+      "block_order": [
+        "m_doublex",
+        "m_juliet",
+        "m_penny"
+      ],
+      "settings": {
+        "eyebrow": "Escolha seu caminho",
+        "heading": "Cada rota pede uma lupa",
+        "section_width": "page-width",
+        "background_color": "",
+        "padding-block-start": 72,
+        "padding-block-end": 72
       }
     },
     "rota_narrativa": {
@@ -703,12 +1007,24 @@
           "type": "text",
           "settings": {
             "text": "<p>A Rota</p>",
-            "type_preset": "paragraph",
-            "case": "uppercase",
-            "letter_spacing": "loose",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "center"
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "loose",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -716,10 +1032,24 @@
           "type": "text",
           "settings": {
             "text": "<h2>Toda caravana segue o mesmo caminho. Um camelo não seguiu.</h2>",
-            "type_preset": "h2",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "center"
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -727,10 +1057,24 @@
           "type": "text",
           "settings": {
             "text": "<p>Foi assim que a Rota começou. E ninguém escolhe a rota por você.</p>",
-            "type_preset": "paragraph",
             "width": "100%",
             "max_width": "narrow",
-            "alignment": "center"
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -741,6 +1085,10 @@
             "link": "shopify://pages/a-rota",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
+            "custom_button_background": "{{ settings.color_palette.foreground }}",
+            "custom_button_text": "{{ settings.color_palette.background }}",
+            "custom_button_border": "{{ settings.color_palette.background }}",
+            "link_text_color": "",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
@@ -772,9 +1120,24 @@
           "name": "t:names.heading",
           "settings": {
             "text": "<h2>Entre para a Rota</h2>",
-            "type_preset": "h3",
             "width": "100%",
-            "alignment": "center"
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -782,9 +1145,24 @@
           "type": "text",
           "settings": {
             "text": "<p>Novidades, lançamentos e ofertas de estreia direto no seu e-mail.</p>",
-            "type_preset": "paragraph",
             "width": "100%",
-            "alignment": "center"
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -793,12 +1171,30 @@
           "settings": {
             "width": "custom",
             "custom_width": 50,
-            "width_mobile": "custom",
-            "custom_width_mobile": 100,
+            "heading": "",
+            "heading_text_color": "",
+            "heading_preset": "h3",
+            "border_style": "all",
+            "input_style": "default",
+            "border_width": 1,
+            "border_radius": 100,
+            "input_background_color": "",
+            "input_text_color": "",
+            "input_border_color": "",
+            "input_type_preset": "paragraph",
             "style_class": "button-unstyled",
+            "custom_button_background": "{{ settings.color_palette.foreground }}",
+            "custom_button_text": "{{ settings.color_palette.background }}",
+            "custom_button_border": "{{ settings.color_palette.background }}",
+            "link_text_color": "",
             "display_type": "arrow",
             "label": "Quero entrar",
-            "integrated_button": true
+            "integrated_button": true,
+            "button_type_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         }
@@ -819,55 +1215,21 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "full-width",
+        "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
         "background_color": "{{ settings.color_palette.color1 }}",
         "video_position": "cover",
         "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
         "toggle_overlay": false,
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 72,
-        "padding-block-end": 72
-      }
-    },
-    "rota_modelos": {
-      "type": "rota-modelos",
-      "blocks": {
-        "m_doublex": {
-          "type": "modelo",
-          "settings": {
-            "collection": "double-x"
-          }
-        },
-        "m_juliet": {
-          "type": "modelo",
-          "settings": {
-            "collection": "juliet"
-          }
-        },
-        "m_penny": {
-          "type": "modelo",
-          "settings": {
-            "collection": "penny"
-          }
-        }
-      },
-      "block_order": [
-        "m_doublex",
-        "m_juliet",
-        "m_penny"
-      ],
-      "settings": {
-        "eyebrow": "Escolha seu caminho",
-        "heading": "Cada rota pede uma lupa",
-        "section_width": "page-width",
-        "background_color": "",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
         "padding-block-start": 72,
         "padding-block-end": 72
       }
