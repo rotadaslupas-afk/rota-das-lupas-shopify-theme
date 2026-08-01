@@ -15,6 +15,11 @@
   {% endif %}
 >
   {% capture children %}
+    {% if closest.product.metafields.custom.em_alta.value == true or closest.product.metafields.custom.destaque.value == true %}
+      <div class="rota-trend-badge-row">
+        {% render 'rota-trend-badge', product: closest.product, context: 'detail' %}
+      </div>
+    {% endif %}
     <div class="view-product-title">
       <a
         href="{{ closest.product.selected_or_first_available_variant.url }}"

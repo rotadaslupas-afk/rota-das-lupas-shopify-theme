@@ -1,0 +1,64 @@
+{%- liquid
+  assign badge_label = blank
+  assign badge_variant = blank
+
+  if product.metafields.custom.em_alta.value == true
+    assign badge_label = 'Em alta'
+    assign badge_variant = 'hot'
+  elsif product.metafields.custom.destaque.value == true
+    assign badge_label = 'Destaque'
+    assign badge_variant = 'featured'
+  endif
+-%}
+
+{%- if badge_label != blank -%}
+  <span
+    class="rota-trend-badge rota-trend-badge--{{ badge_variant }} rota-trend-badge--{{ context | default: 'card' }}"
+    aria-label="Selo editorial: {{ badge_label }}"
+  >
+    {{- badge_label -}}
+  </span>
+{%- endif -%}
+
+{% stylesheet %}
+  .rota-trend-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 24px;
+    padding: 4px 10px;
+    border: 1px solid rgb(247 240 223 / 28%);
+    border-radius: 999px;
+    font-family: var(--font-body--family);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 7px 20px rgb(23 20 14 / 14%);
+  }
+
+  .rota-trend-badge--hot {
+    color: #f7f0df;
+    background: #18382b;
+  }
+
+  .rota-trend-badge--featured {
+    color: #17140e;
+    background: #c9922e;
+    border-color: rgb(23 20 14 / 16%);
+  }
+
+  .rota-trend-badge--detail {
+    min-height: 28px;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+  }
+
+  .rota-trend-badge-row {
+    display: flex;
+    align-items: center;
+    min-height: 28px;
+  }
+{% endstylesheet %}
