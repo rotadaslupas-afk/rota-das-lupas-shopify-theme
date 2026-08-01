@@ -1,33 +1,38 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "currency_code_enabled_product_pages": false,
-    "currency_code_enabled_product_cards": false,
-    "currency_code_enabled_cart_items": false,
-    "currency_code_enabled_cart_total": false,
     "logo": "shopify://shop_images/logo-header-v2.png",
     "logo_height": 76,
     "logo_height_mobile": 40,
     "favicon": "shopify://shop_images/favicon-rota.png",
-    "page_background_color": "{{ settings.color_palette.background }}",
     "page_text_color": "{{ settings.color_palette.foreground }}",
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n5",
     "type_heading_font": "playfair_display_n5",
     "type_accent_font": "inter_n5",
-    "page_width": "normal",
     "type_size_paragraph": "16",
     "type_line_height_paragraph": "body-normal",
     "type_size_h1": "64",
     "type_case_h1": "none",
     "type_size_h2": "44",
     "type_line_height_h2": "display-tight",
-    "type_size_h3": "30",
-    "type_size_h4": "22",
     "type_case_h2": "none",
+    "type_size_h3": "30",
     "type_case_h3": "none",
+    "type_size_h4": "22",
     "type_case_h4": "none",
     "type_case_h5": "none",
     "type_case_h6": "none",
+    "page_background_color": "{{ settings.color_palette.background }}",
+    "page_width": "normal",
     "card_hover_effect": "subtle-zoom",
     "badge_sale_background_color": "{{ settings.color_palette.color2 }}",
     "badge_sale_text_color": "{{ settings.color_palette.foreground }}",
@@ -53,8 +58,12 @@
     "inputs_border_radius": 32,
     "popover_background_color": "{{ settings.color_palette.background }}",
     "popover_text_color": "{{ settings.color_palette.foreground }}",
-    "popover_border_color": "{{ settings.color_palette.color3 }}",
     "popover_border_radius": 8,
+    "popover_border_color": "{{ settings.color_palette.color3 }}",
+    "currency_code_enabled_product_pages": false,
+    "currency_code_enabled_product_cards": false,
+    "currency_code_enabled_cart_items": false,
+    "currency_code_enabled_cart_total": false,
     "quick_add_background": "{{ settings.color_palette.background }}",
     "quick_add_text": "{{ settings.color_palette.foreground }}",
     "variant_swatch_radius": 50,
@@ -66,6 +75,24 @@
     "palette_selected_variant_border": "{{ settings.color_palette.foreground }}",
     "variant_button_radius": 100,
     "variant_button_width": "equal-width-buttons",
+    "content_for_index": [],
+    "blocks": {
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "2567389343055140935": {
+        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "12948015482042402483": {
+        "type": "shopify://apps/mercado-pago-antifraud-plus/blocks/embed-block/b19ea721-f94a-4308-bee5-0057c043bac5",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_palette": {
       "background": "#f7f2e7",
       "foreground": "#1a1a17",
