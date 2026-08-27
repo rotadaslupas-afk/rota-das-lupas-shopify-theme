@@ -152,7 +152,7 @@
                   "type": "button",
                   "settings": {
                     "label": "Comprar agora",
-                    "link": "shopify://products/oculos-double-x-24k-corvette-24k",
+                    "link": "shopify://products/oculos-juliet-24k-corvette-24k",
                     "open_in_new_tab": false,
                     "style_class": "button",
                     "custom_button_background": "{{ settings.color_palette.foreground }}",
